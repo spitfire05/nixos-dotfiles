@@ -91,6 +91,13 @@
     codebook
   ];
 
+  # Codebook config
+  xdg.configFile."codebook/codebook.toml".text = ''
+    ignore_patterns = [
+      '\b[A-Z]{3,}\b',
+    ]
+    '';
+
   # nh is a nicer frontend for nixos-rebuild + garbage collection. Point it at
   # wherever you keep this flake checked out.
   programs.nh = {
