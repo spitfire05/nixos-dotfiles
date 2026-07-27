@@ -23,11 +23,11 @@
 
   # Pull niri and noctalia as prebuilt binaries instead of compiling them.
   nix.settings.extra-substituters = [
-    "https://niri.cachix.org"
+    "https://niri-epireyn.cachix.org"
     "https://noctalia.cachix.org"
   ];
   nix.settings.extra-trusted-public-keys = [
-    "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+    "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
     "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
   ];
 
