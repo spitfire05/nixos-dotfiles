@@ -87,8 +87,10 @@
       exec gamemoderun mangohud "''${ENV[@]}" "''$@"
     '')
 
+    # dev stuff
     rustup
     codebook
+    marksman
   ];
 
   # Codebook config
