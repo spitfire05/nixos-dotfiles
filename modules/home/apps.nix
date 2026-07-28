@@ -47,7 +47,7 @@
       vram = true;
       ram = true;
       swap = true;
-      displayserver = true;
+      display_server = true;
       wine = true;
       winesync = true;
       gamemode = true;
