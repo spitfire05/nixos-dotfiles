@@ -18,6 +18,7 @@
     pkgs.inkscape
     pkgs.kdePackages.okular
     pkgs.localsend
+    pkgs.signal-desktop
   ];
 
   # Zen browser — Firefox-based, from the community flake (beta channel).
