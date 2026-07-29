@@ -19,6 +19,7 @@
     pkgs.kdePackages.okular
     pkgs.localsend
     pkgs.signal-desktop
+    pkgs.darktable
   ];
 
   # Zen browser — Firefox-based, from the community flake (beta channel).
