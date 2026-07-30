@@ -20,6 +20,7 @@
     pkgs.localsend
     pkgs.signal-desktop
     pkgs.darktable
+    pkgs.spotify
   ];
 
   # Zen browser — Firefox-based, from the community flake (beta channel).
