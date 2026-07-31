@@ -12,7 +12,7 @@
     # Scrollable-tiling Wayland compositor + NixOS/home-manager modules.
     # Deliberately does NOT follow our nixpkgs, so niri-flake's prebuilt
     # packages stay byte-identical to what niri.cachix.org has cached.
-    niri.url = "github:epireyn/niri-flake/e400d48e3c7a48c7c4d676a0f9909e0f3a964b50";
+    niri.url = "github:epireyn/niri-flake";
 
     # Noctalia desktop shell (v5 line). Pinned to the `cachix` branch: upstream
     # force-pushes there only after a commit's package is built and pushed to
@@ -71,7 +71,6 @@
       specialArgs = {inherit inputs username local;};
       modules = [
         niri.nixosModules.niri
-        noctalia.nixosModules.default
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
 
