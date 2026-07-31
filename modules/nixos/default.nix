@@ -44,4 +44,13 @@
 
   environment.sessionVariables.MANROFFOPT = "-c";
   environment.sessionVariables.MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen-beta
+      '';
+      mode = "0755";
+    };
+  };
 }
