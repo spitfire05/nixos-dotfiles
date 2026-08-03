@@ -2,7 +2,6 @@
   imports = [
     ./networking.nix
     ./fonts.nix
-    ./desktop.nix
     ./stylix.nix
     ./users.nix
   ];

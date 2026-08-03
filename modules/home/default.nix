@@ -1,35 +1,47 @@
-{config, username, ...}: {
-  imports = [
+{
+  config,
+  lib,
+  username,
+  isDarwin ? false,
+  ...
+}: let
+  isLinux = !isDarwin;
+
+  common = [
     ./cli.nix
     ./fish.nix
     ./starship.nix
     ./git.nix
     ./ghostty.nix
     ./zed.nix
-    ./gtk.nix
-    ./niri.nix
-    ./noctalia.nix
     ./direnv.nix
     ./claude-code.nix
-    ./apps.nix
-    ./media.nix
-    ./discord.nix
     ./helix.nix
   ];
 
+  linuxOnly = [
+    ./gtk.nix
+    ./niri.nix
+    ./noctalia.nix
+    ./apps.nix
+    ./media.nix
+    ./discord.nix
+  ];
+in {
+  imports = common ++ lib.optionals isLinux linuxOnly;
+
   home.username = username;
-  home.homeDirectory = "/home/${username}";
+  home.homeDirectory =
+    if isDarwin
+    then "/Users/${username}"
+    else "/home/${username}";
 
-  # Match system.stateVersion in hosts/nnn/default.nix. Don't bump casually.
   home.stateVersion = "25.05";
-
   programs.home-manager.enable = true;
 
-  # Required for stylix (?)
-  home.pointerCursor.enable = true;
+  home.pointerCursor.enable = lib.mkIf isLinux true;
 
-  # Custom symlink to external drive, for convinience:
-  home.file = {
+  home.file = lib.mkIf isLinux {
     dev.source = config.lib.file.mkOutOfStoreSymlink "/mnt/dev";
   };
 }
