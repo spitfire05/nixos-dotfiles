@@ -12,20 +12,20 @@
     ./fish.nix
     ./starship.nix
     ./git.nix
-    ./ghostty.nix
-    ./zed.nix
     ./direnv.nix
     ./claude-code.nix
     ./helix.nix
   ];
 
   linuxOnly = [
+    ./ghostty.nix
     ./gtk.nix
     ./niri.nix
     ./noctalia.nix
     ./apps.nix
     ./media.nix
     ./discord.nix
+    ./zed.nix
   ];
 in {
   imports = common ++ lib.optionals isLinux linuxOnly;

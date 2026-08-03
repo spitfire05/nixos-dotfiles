@@ -8,5 +8,5 @@
    
   # The release this config was written against. Do NOT bump casually after
   # first install — read the NixOS release notes first.
-  system.stateVersion = "25.05";
+  system.stateVersion = 6;
 }

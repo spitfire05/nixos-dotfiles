@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  isDarwin,
   ...
 }: {
   # ── Tools with a home-manager program module ──────────────────────────────
@@ -104,6 +105,9 @@
   # wherever you keep this flake checked out.
   programs.nh = {
     enable = true;
-    flake = "/home/${username}/nixos-dotfiles";
+    flake =
+    if isDarwin
+    then "Users/${username}/nixos-dotfiles"
+    else "/home/${username}/nixos-dotfiles";
   };
 }

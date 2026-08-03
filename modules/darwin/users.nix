@@ -1,15 +1,20 @@
 {
-  pkgs,
-  username,
-  local,
-  ...
-}: {
-  # ⇩ username/description come from local.nix.
-  users.users.${username} = {
-    description = local.fullName;
-    shell = pkgs.fish;
-  };
+    pkgs,
+      username,
+        local,
+          ...
+          }: {
+ system.primaryUser = username; # needed on recent nix-darwin
 
-  # fish must be enabled at the system level to be a valid login shell.
-  programs.fish.enable = true;
+   users.users.${username} = {
+         home = "/Users/${username}";
+             description = local.fullName;
+                 shell = pkgs.fish;
+                   };
+
+                     programs.fish.enable = true;
+
+                         security.sudo.extraConfig = ''
+                           %admin ALL=(ALL) NOPASSWD: ALL
+   '';
 }
