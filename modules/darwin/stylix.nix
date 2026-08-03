@@ -9,8 +9,7 @@
 
     image = ../../themes/wallpaper.png;
 
-    # A hint of terminal transparency for that layered desktop look.
-    opacity.terminal = 0.95;
+    opacity.terminal = 1.0;
 
     fonts = {
       monospace = {
