@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  isDarwin,
   ...
 }: {
   # `nix-shell` / `nix-shell -p` hardcode bash. any-nix-shell re-execs fish
@@ -30,13 +31,19 @@
       lg = "lazygit";
 
       # nh-powered rebuilds from anywhere.
-      rebuild = "nh os switch";
-      update = "nh os switch --update";
+      rebuild =
+        if isDarwin
+        then "nh darwin switch"
+        else "nh os switch";
+      update =
+        if isDarwin
+        then "nh darwin switch --update"
+        else "nh os switch --update";
     };
 
     interactiveShellInit = ''
       set -g fish_greeting ""
-      
+
       # Keep fish inside `nix-shell` instead of falling back to bash.
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';

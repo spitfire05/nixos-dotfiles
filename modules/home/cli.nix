@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   username,
   isDarwin,
@@ -13,6 +14,14 @@
     settings = {
       date = "relative";
       icons.when = "auto";
+    };
+  };
+
+  # Alactritty on Darwin, as ghostty is not available
+  programs.alacritty = {
+    enable = lib.mkIf isDarwin true;
+    settings = {
+      terminal.shell = "${pkgs.fish}/bin/fish";
     };
   };
 
@@ -79,12 +88,12 @@
         "PROTON_ENABLE_NVAPI=1"
         "PROTON_ENABLE_WAYLAND=1"
       )
-      
+
       if [ $# -eq 0 ]; then
         printf 'Usage: %s command [args...]\n' "''${0##*/}" >&2
         exit 2
       fi
-      
+
       exec gamemoderun mangohud "''${ENV[@]}" "''$@"
     '')
 
@@ -99,15 +108,15 @@
     ignore_patterns = [
       '\b[A-Z]{3,}\b',
     ]
-    '';
+  '';
 
   # nh is a nicer frontend for nixos-rebuild + garbage collection. Point it at
   # wherever you keep this flake checked out.
   programs.nh = {
     enable = true;
     flake =
-    if isDarwin
-    then "Users/${username}/nixos-dotfiles"
-    else "/home/${username}/nixos-dotfiles";
+      if isDarwin
+      then "/Users/${username}/nixos-dotfiles"
+      else "/home/${username}/nixos-dotfiles";
   };
 }
