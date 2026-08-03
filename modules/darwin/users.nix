@@ -6,10 +6,7 @@
 }: {
   # ⇩ username/description come from local.nix.
   users.users.${username} = {
-    isNormalUser = true;
     description = local.fullName;
-    extraGroups = [
-    ];
     shell = pkgs.fish;
   };
 

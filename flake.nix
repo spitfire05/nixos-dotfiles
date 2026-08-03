@@ -76,7 +76,6 @@
       system = hostSystem;
       specialArgs = {
         inherit inputs username local;
-        isDarwin = false;
       };
       modules = [
         niri.nixosModules.niri
@@ -100,7 +99,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-bak";
-          home-manager.extraSpecialArgs = {inherit inputs username local;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs username local;
+            isDarwin = false;
+          };
           # niri-flake auto-imports its home modules (config + stylix) into
           # every user when home-manager runs as a NixOS module, so we only
           # add noctalia's here. Importing the niri ones again double-declares
@@ -118,7 +120,6 @@
       system = "aarch64-darwin";
       specialArgs = {
         inherit inputs username local;
-        isDarwin = true;
       };
       modules = [
         stylix.darwinModules.stylix
@@ -133,7 +134,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-bak";
-          home-manager.extraSpecialArgs = {inherit inputs username local;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs username local;
+            isDarwin = true;
+          };
           # niri-flake auto-imports its home modules (config + stylix) into
           # every user when home-manager runs as a NixOS module, so we only
           # add noctalia's here. Importing the niri ones again double-declares
