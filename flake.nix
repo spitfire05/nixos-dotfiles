@@ -41,6 +41,7 @@
 
   outputs = {
     nixpkgs,
+    nix-darwin,
     home-manager,
     niri,
     noctalia,
@@ -66,7 +67,7 @@
     forAllSystems = nixpkgs.lib.genAttrs devSystems;
     pkgsFor = system: nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations."${local.hostName}" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.michal-pc = nixpkgs.lib.nixosSystem {
       system = hostSystem;
       specialArgs = {inherit inputs username local;};
       modules = [
@@ -74,7 +75,7 @@
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
 
-        ./hosts/nnn
+        ./hosts/michal-pc
         ./modules/nixos
 
         {
@@ -99,6 +100,33 @@
           home-manager.sharedModules = [
             noctalia.homeModules.default
           ];
+          home-manager.users.${username} = import ./modules/home;
+
+        }
+      ];
+    };
+    
+    darwinConfigurations.michal-macbook = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      specialArgs = {inherit inputs username local;};
+      modules = [
+        stylix.darwinModules.stylix
+        home-manager.darwinModules.home-manager
+
+        ./hosts/michal-macbook
+        ./modules/darwin
+
+        {
+          nixpkgs.config.allowUnfree = true;
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-bak";
+          home-manager.extraSpecialArgs = {inherit inputs username local;};
+          # niri-flake auto-imports its home modules (config + stylix) into
+          # every user when home-manager runs as a NixOS module, so we only
+          # add noctalia's here. Importing the niri ones again double-declares
+          # `programs.niri.finalConfig`.
           home-manager.users.${username} = import ./modules/home;
 
         }
