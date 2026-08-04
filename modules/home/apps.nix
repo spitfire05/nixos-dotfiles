@@ -8,20 +8,23 @@
 
   # GUI desktop apps. Browsers and file managers live here rather than in the
   # CLI bundle.
-  home.packages = [
-    # Nautilus (GNOME Files): a sensible GTK file manager. Pairs with the gvfs
-    # service enabled in modules/nixos/desktop.nix for trash + mounting, and
-    # backs the browser's "open/save" file picker via the gtk xdg portal.
-    pkgs.nautilus
-    pkgs._1password-cli
-    pkgs._1password-gui
-    pkgs.inkscape
-    pkgs.kdePackages.okular
-    pkgs.localsend
-    pkgs.signal-desktop
-    pkgs.darktable
-    pkgs.spotify
-  ];
+  home.packages = with pkgs;
+    [
+      _1password-cli
+      _1password-gui
+      inkscape
+      localsend
+      signal-desktop
+      darktable
+      spotify
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      # Nautilus (GNOME Files): a sensible GTK file manager. Pairs with the gvfs
+      # service enabled in modules/nixos/desktop.nix for trash + mounting, and
+      # backs the browser's "open/save" file picker via the gtk xdg portal.
+      nautilus
+      kdePackages.okular
+    ];
 
   # Zen browser — Firefox-based, from the community flake (beta channel).
   # Managed through the flake's home-manager module (rather than just dropping
@@ -41,7 +44,7 @@
   stylix.targets.zen-browser.profileNames = ["default"];
 
   programs.mangohud = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     settings = {
       preset = 3;
       no_display = true;
