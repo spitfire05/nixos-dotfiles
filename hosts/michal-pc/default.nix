@@ -1,4 +1,8 @@
-{local, ...}: {
+{
+  local,
+  pkgs,
+  ...
+}: {
   # Host-specific hardware config lives here. For common config, see `modules/nixos/hardware.nix`.
 
   imports = [
@@ -12,6 +16,14 @@
     modesetting.enable = true;
     powerManagement.enable = true;
   };
+  hardware.graphics.extraPackages = with pkgs; [
+    nvidia-vaapi-driver
+  ];
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+  };
+  boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+  boot.kernelParams = ["nvidia-drm.modeset=1" "nvidia-drm.fbdev=1"];
 
   networking.hostName = local.hostName;
 
