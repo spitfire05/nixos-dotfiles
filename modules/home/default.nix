@@ -8,6 +8,7 @@
   isLinux = !isDarwin;
 
   common = [
+    ./apps.nix
     ./cli.nix
     ./fish.nix
     ./starship.nix
@@ -22,7 +23,6 @@
     ./gtk.nix
     ./niri.nix
     ./noctalia.nix
-    ./apps.nix
     ./media.nix
     ./discord.nix
     ./zed.nix
