@@ -58,19 +58,18 @@
     animations.slowdown = 0.7;
 
     hotkey-overlay.skip-at-startup = true;
-    
+
     # Make the wallpaper stationary, rather than moving with workspaces.
     layer-rules = [
       {
         matches = [
-          { namespace = "^noctalia-backdrop"; }
+          {namespace = "^noctalia-backdrop";}
         ];
         place-within-backdrop = true;
       }
     ];
 
     window-rules = [
-
       # Rounder corners to match Noctalia's style
       {
         geometry-corner-radius = {
@@ -81,11 +80,11 @@
         };
         clip-to-geometry = true;
       }
-      
+
       # Floating Noctalia settings window
       {
         matches = [
-          { app-id = "dev.noctalia.Noctalia"; }
+          {app-id = "dev.noctalia.Noctalia";}
         ];
         open-floating = true;
         default-column-width = {
@@ -95,7 +94,6 @@
           fixed = 920;
         };
       }
-
     ];
 
     # niri-flake's canonical attribute form: `action.<name> = <args>`. No-arg
