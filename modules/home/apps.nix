@@ -18,7 +18,7 @@
       darktable
       spotify
     ]
-    ++ lib.optionals stdenv.isLinux [
+    ++ lib.optionals stdenv.hostPlatform.isLinux [
       # Nautilus (GNOME Files): a sensible GTK file manager. Pairs with the gvfs
       # service enabled in modules/nixos/desktop.nix for trash + mounting, and
       # backs the browser's "open/save" file picker via the gtk xdg portal.
@@ -44,7 +44,7 @@
   stylix.targets.zen-browser.profileNames = ["default"];
 
   programs.mangohud = {
-    enable = pkgs.stdenv.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     settings = {
       preset = 3;
       no_display = true;
