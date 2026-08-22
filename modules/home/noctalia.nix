@@ -17,7 +17,9 @@
 
     settings = {
       backdrop.enabled = true;
-      bar.default = {};
+      bar.default = {
+        start = ["launcher" "wallpaper" "workspaces" "cpu" "ram" "network_rx" "network_tx"];
+      };
       idle = {
         behavior_order = ["lock" "screen-off" "lock-and-suspend"];
         behavior = {
