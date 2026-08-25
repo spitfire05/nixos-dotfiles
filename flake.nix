@@ -53,9 +53,6 @@
     stylix,
     ...
   } @ inputs: let
-    # The platform the NNN machine runs on.
-    hostSystem = "x86_64-linux";
-
     # Personal, machine-local settings. Tracked with placeholder defaults but
     # marked skip-worktree so your real values never get committed:
     #   git update-index --skip-worktree local.nix
@@ -73,7 +70,7 @@
     pkgsFor = system: nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations.michal-pc = nixpkgs.lib.nixosSystem {
-      system = hostSystem;
+      system = "x86_64-linux";
       specialArgs = {
         inherit inputs username local;
       };
@@ -130,10 +127,6 @@
             inherit inputs username local;
             isDarwin = true;
           };
-          # niri-flake auto-imports its home modules (config + stylix) into
-          # every user when home-manager runs as a NixOS module, so we only
-          # add noctalia's here. Importing the niri ones again double-declares
-          # `programs.niri.finalConfig`.
           home-manager.users.${username} = import ./modules/home;
         }
       ];
@@ -151,6 +144,7 @@
           deadnix
           nh
           nix-output-monitor
+          glow
         ];
       };
     });
