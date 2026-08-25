@@ -24,6 +24,35 @@
   };
   boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
   boot.kernelParams = ["nvidia-drm.modeset=1" "nvidia-drm.fbdev=1"];
+  # https://niri-wm.github.io/niri/Nvidia.html#high-vram-usage-fix
+  environment.etc = {
+    "nvidia/nvidia-application-profiles-rc.d/niri.json" = {
+      text = ''
+        {
+          "rules": [
+            {
+              "pattern": {
+                "feature": "procname",
+                "matches": "niri"
+              },
+              "profile": "Limit Free Buffer Pool On Wayland Compositors"
+            }
+          ],
+          "profiles": [
+            {
+              "name": "Limit Free Buffer Pool On Wayland Compositors",
+              "settings": [
+                {
+                  "key": "GLVidHeapReuseRatio",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        }
+      '';
+    };
+  };
 
   networking.hostName = local.hostName;
 
@@ -49,6 +78,11 @@
     fsType = "btrfs";
     options = ["ssd" "noatime" "nofail"];
   };
+
+  # Host-specific packages
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+  ];
 
   # The release this config was written against. Do NOT bump casually after
   # first install — read the NixOS release notes first.
