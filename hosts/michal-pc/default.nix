@@ -79,9 +79,17 @@
     options = ["ssd" "noatime" "nofail"];
   };
 
+  # Local LLM inference (NVIDIA CUDA)
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    loadModels = ["qwen2.5-coder:7b"];
+  };
+
   # Host-specific packages
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
+    ollama
   ];
 
   # The release this config was written against. Do NOT bump casually after

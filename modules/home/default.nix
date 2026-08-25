@@ -15,6 +15,7 @@
     ./git.nix
     ./direnv.nix
     ./helix.nix
+    ./opencode.nix
   ];
 
   linuxOnly = [
