@@ -15,6 +15,9 @@
       confirm-close-surface = false;
       window-inherit-working-directory = true;
       # Background opacity is managed by Stylix (stylix.opacity.terminal).
+
+      # Unbind default fullscreen toggle, niri gives us this functionality
+      keybind = "ctrl+enter=unbind";
     };
   };
 }
