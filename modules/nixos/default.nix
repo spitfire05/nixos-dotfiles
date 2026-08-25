@@ -25,10 +25,12 @@
   nix.settings.extra-substituters = [
     "https://niri-epireyn.cachix.org"
     "https://noctalia.cachix.org"
+    "https://cache.nixos-cuda.org"
   ];
   nix.settings.extra-trusted-public-keys = [
     "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
     "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
   ];
 
   nix.gc = {
