@@ -31,6 +31,7 @@
 
     layout = {
       gaps = 12;
+      always-center-single-column = true;
       center-focused-column = "never";
       preset-column-widths = [
         {proportion = 1.0 / 3.0;}
@@ -118,6 +119,11 @@
       "Mod+Shift+F".action.fullscreen-window = {};
       "Mod+W".action.toggle-column-tabbed-display = {};
       "Mod+V".action.toggle-window-floating = {};
+      "Mod+C".action.center-column = {};
+      "Mod+Comma".action.consume-window-into-column = {};
+      "Mod+Period".action.expel-window-from-column = {};
+      "Mod+BracketLeft".action.consume-or-expel-window-left = {};
+      "Mod+BracketRight".action.consume-or-expel-window-right = {};
 
       # Focus
       "Mod+Left".action.focus-column-left = {};
@@ -135,6 +141,8 @@
       "Mod+R".action.switch-preset-column-width = {};
       "Mod+Minus".action.set-column-width = "-10%";
       "Mod+Equal".action.set-column-width = "+10%";
+      "Mod+Shift+Minus".action.set-window-height = "-10%";
+      "Mod+Shift+Equal".action.set-window-height = "+10%";
 
       # Workspaces
       "Mod+1".action.focus-workspace = 1;
