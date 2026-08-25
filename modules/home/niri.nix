@@ -20,7 +20,7 @@
         accel-profile = "flat";
         natural-scroll = true; # match macOS-style scrolling (also set on touchpad)
       };
-      focus-follows-mouse.enable = true;
+      focus-follows-mouse.enable = false;
       warp-mouse-to-focus.enable = true;
     };
 
@@ -32,7 +32,7 @@
     layout = {
       gaps = 12;
       always-center-single-column = true;
-      center-focused-column = "never";
+      center-focused-column = "on-overflow";
       preset-column-widths = [
         {proportion = 1.0 / 3.0;}
         {proportion = 1.0 / 2.0;}
@@ -50,6 +50,10 @@
         inactive.color = "#00000000";
       };
       border.enable = false;
+    };
+
+    gestures = {
+      hot-corners.enable = false;
     };
 
     # noctalia is started as a systemd user service bound to the niri session
