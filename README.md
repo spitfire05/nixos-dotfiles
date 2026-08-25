@@ -1,4 +1,4 @@
-# nnn-starter
+# nixos-dotfiles
 
 <p align="center">
   <img src="screenshot.png" alt="Screenshot of the NNN desktop — Niri + Noctalia on NixOS" width="100%">
@@ -27,7 +27,7 @@
 `lsd` · `fzf` · `bat` · `btop` · `ripgrep` · `fd` · `zoxide` · `eza` · `yazi` ·
 `dust` · `duf` · `procs` · `bandwhich` · `gping` · `zellij` ·
 `tealdeer` · `jq` · `yq` · `lazygit` · `delta` · `gh` · `direnv` + `nix-direnv` ·
-`nh` · `nom` · `claude` ([Claude Code](https://github.com/anthropics/claude-code)).
+`nh` · `nom`.
 Old names are aliased to the new tools (`ls`→`lsd`, `cat`→`bat`,
 `cd`→`zoxide`, `top`→`btop`, …).
 
@@ -77,7 +77,7 @@ values never get staged or committed.
 ```
 flake.nix              # inputs + the single `nixosConfigurations.nnn`
 local.nix              # your machine-local identity (skip-worktree)
-hosts/nnn/             # host: hardware + locale/timezone
+hosts/(...)/           # Per-host configuration: hardware, drivers, etc..
 modules/nixos/         # system: boot, audio, niri, noctalia, stylix, users…
 modules/home/          # user: fish, ghostty, neovim, niri keybinds, cli tools…
 ```
