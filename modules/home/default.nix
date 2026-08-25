@@ -14,7 +14,6 @@
     ./starship.nix
     ./git.nix
     ./direnv.nix
-    ./claude-code.nix
     ./helix.nix
   ];
 
