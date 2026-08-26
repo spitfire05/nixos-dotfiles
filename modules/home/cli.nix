@@ -79,22 +79,29 @@
     devenv # per-project dev environments (`use devenv` in .envrc)
     nixd
 
-    # Custom wrapper to run games with:
+    # Custom wrapper to run games with gamemoderun + mangohud + selected Proton envs.
+    # When MOONSHINE_CLIENT_FRAMERATE is present (i.e. the game was launched by
+    # Moonshine for a remote client), we skip mangohud and PROTON_ENABLE_WAYLAND
+    # because proton + native wayland currently acts bad in moonshine.
     (writeShellScriptBin "gamerun" ''
-      ENV=(
-        "PROTON_DLSS_UPGRADE=1"
-        "PROTON_USE_NTSYNC=1"
-        "DXVK_ASYNC=1"
-        "PROTON_ENABLE_NVAPI=1"
-        "PROTON_ENABLE_WAYLAND=1"
-      )
-
       if [ $# -eq 0 ]; then
         printf 'Usage: %s command [args...]\n' "''${0##*/}" >&2
         exit 2
       fi
 
-      exec gamemoderun mangohud "''${ENV[@]}" "''$@"
+      ENV=(
+        "PROTON_DLSS_UPGRADE=1"
+        "PROTON_USE_NTSYNC=1"
+        "DXVK_ASYNC=1"
+        "PROTON_ENABLE_NVAPI=1"
+      )
+
+      if [ -z "''${MOONSHINE_CLIENT_FRAMERATE:-}" ]; then
+        ENV+=("PROTON_ENABLE_WAYLAND=1")
+        exec gamemoderun mangohud "''${ENV[@]}" "''$@"
+      else
+        exec gamemoderun env "''${ENV[@]}" "''$@"
+      fi
     '')
 
     # dev stuff
