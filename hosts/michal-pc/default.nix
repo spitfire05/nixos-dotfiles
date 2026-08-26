@@ -83,13 +83,15 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-cuda;
-    loadModels = ["qwen2.5-coder:7b"];
+    environmentVariables = {
+      OLLAMA_CONTEXT_LENGTH = "16384";
+    };
+    loadModels = ["gemma4:e4b"];
   };
 
   # Host-specific packages
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
-    ollama
   ];
 
   # The release this config was written against. Do NOT bump casually after
