@@ -1,5 +1,5 @@
 {
-  description = "nnn-starter — an opinionated NixOS starter for the NNN stack (NixOS + Niri + Noctalia)";
+  description = "nixos-dotfiles — an opinionated NixOS + Niri + Noctalia stack (with Darwin support)";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

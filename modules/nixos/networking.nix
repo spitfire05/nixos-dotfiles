@@ -2,7 +2,8 @@
   networking.networkmanager.enable = true;
 
   networking.interfaces = {
-    enp34s0 = { # This needs to match the ethernet iface name
+    enp34s0 = {
+      # This needs to match the ethernet iface name
       wakeOnLan.enable = true;
     };
   };
@@ -12,7 +13,7 @@
       53317 # localsend
     ];
     allowedUDPPorts = [
-      9     # WoL
+      9 # WoL
       53317 # localsend
     ];
   };
@@ -36,9 +37,8 @@
       UseDns = true;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ local.username ];
-    }
-    ;
+      AllowUsers = [local.username];
+    };
   };
 
   services.tailscale.enable = true;

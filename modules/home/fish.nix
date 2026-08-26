@@ -25,8 +25,6 @@
       df = "duf";
       ps = "procs";
       ping = "gping";
-      vim = "nvim";
-      vi = "nvim";
       g = "git";
       lg = "lazygit";
 

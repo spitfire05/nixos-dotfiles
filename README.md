@@ -4,7 +4,7 @@
   <img src="screenshot.png" alt="Screenshot of the NNN desktop — Niri + Noctalia on NixOS" width="100%">
 </p>
 
-> My personal, opinionated **NNN** (NixOs + Niri + Noctalia) stack config. Based on [nnn-starter](https://github.com/floatdrop/nnn-starter).
+> My personal, opinionated **NNN** (NixOS + Niri + Noctalia) stack config. Based on [nnn-starter](https://github.com/floatdrop/nnn-starter).
 
 ## What is included
 
@@ -35,22 +35,23 @@ Old names are aliased to the new tools (`ls`→`lsd`, `cat`→`bat`,
 
 ```sh
 # 1. Get the repo onto your machine (or into the live NixOS installer).
-git clone https://github.com/spitfire05/nnn-starter ~/nnn-starter
-cd ~/nnn-starter
+git clone https://github.com/spitfire05/nixos-dotfiles.git ~/nixos-dotfiles
+cd ~/nixos-dotfiles
 
 # 2. Generate real hardware config for THIS machine.
-sudo nixos-generate-config --show-hardware-config > hosts/nnn/hardware-configuration.nix
+sudo nixos-generate-config --show-hardware-config > hosts/<HOSTNAME>/hardware-configuration.nix
 
 # 3. Put your identity in local.nix (see Placeholders below), then keep your
 #    edits out of git history:
 git update-index --skip-worktree local.nix
 
-# 4. Build & switch. Replace <HOSTNAME> with what is set in local.nix
-sudo nixos-rebuild switch --flake .#<HOSTANAME>
+# 4. Build & switch. <HOSTNAME> comes from `local.nix` (and must match the key under `nixosConfigurations` or `darwinConfigurations` in `flake.nix`)
+sudo nixos-rebuild switch --flake .#<HOSTNAME>
 ```
 
-After the first build, rebuild with `nh os switch` (aliased to `rebuild`) or
-`update` (which also bumps `flake.lock`).
+For macOS/Darwin hosts use the equivalent `darwin-rebuild` (or the `rebuild` fish alias) after adding a `darwinConfiguration` entry.
+
+After the first build, use the `rebuild` (or `update`) fish alias (maps to `nh os switch` / `nh darwin switch` as appropriate) or `nh` directly.
 
 ## Placeholders to edit
 
@@ -64,9 +65,9 @@ values never get staged or committed.
 | **Git identity** (name, email)    | [`local.nix`](local.nix)                                         |
 | **Timezone**                      | [`local.nix`](local.nix)                                         |
 | **Monitor scale**                 | [`local.nix`](local.nix)                                         |
-| **Hardware**                      | `hosts/nnn/hardware-configuration.nix` (generated, step 2 above) |
-| **External storage** if any       | `hosts/nnn/default.nix`                                          |
-| **Locale / keyboard layout**      | [`hosts/nnn/default.nix`](hosts/nnn/default.nix)                 |
+| **Hardware**                      | `hosts/<HOSTNAME>/hardware-configuration.nix` (generated, step 2) |
+| **External storage** if any       | `hosts/<HOSTNAME>/default.nix`                                    |
+| **Locale / keyboard layout**      | [`hosts/<HOSTNAME>/default.nix`](hosts/<HOSTNAME>/default.nix)    |
 | **Monitor name / position**       | `outputs` in [`modules/home/niri.nix`](modules/home/niri.nix)    |
 
 > Editing the defaults themselves (e.g. to change the placeholders this repo
@@ -75,12 +76,25 @@ values never get staged or committed.
 ## Layout
 
 ```
-flake.nix              # inputs + the single `nixosConfigurations.nnn`
+flake.nix              # inputs + nixosConfigurations + darwinConfigurations
 local.nix              # your machine-local identity (skip-worktree)
-hosts/(...)/           # Per-host configuration: hardware, drivers, etc..
+hosts/michal-pc/       # Linux host (NVIDIA, mounts, etc.)
+hosts/michal-macbook/  # Darwin host
 modules/nixos/         # system: boot, audio, niri, noctalia, stylix, users…
-modules/home/          # user: fish, ghostty, neovim, niri keybinds, cli tools…
+modules/home/          # user: fish, ghostty, helix, niri keybinds, cli tools…
+modules/darwin/        # macOS-specific modules
 ```
+
+GUI/desktop apps and the niri/Noctalia stack are Linux-only (conditional imports in `modules/home/default.nix`).
+
+## Darwin / macOS support
+
+The flake also exports `darwinConfigurations.michal-macbook`.
+
+User configuration is shared via `modules/home`; Linux-only modules (niri, noctalia, ghostty, zed, media, etc.) are skipped on Darwin.
+- Terminal: Alacritty (Ghostty is Linux-only).
+- Rebuild with the `rebuild` fish alias (`nh darwin switch`).
+- Use the same `local.nix` (hostName etc. can differ per-machine via skip-worktree).
 
 ## Key bindings (niri)
 
@@ -93,8 +107,8 @@ modules/home/          # user: fish, ghostty, neovim, niri keybinds, cli tools�
 | `Mod`+`Q` | Close window |
 | `Mod`+`O` | Toggle overview |
 | `Mod`+`F` / `Mod`+`Shift`+`F` | Maximize column / fullscreen |
-| `Mod`+`H`/`J`/`K`/`L` | Focus left/down/up/right |
-| `Mod`+`Shift`+`H`/`J`/`K`/`L` | Move window |
+| `Mod`+`Left`/`Right`/`Up`/`Down` | Focus column/window |
+| `Mod`+`Shift`+`Left`/`Right`/`Up`/`Down` | Move window |
 | `Mod`+`1`…`5` | Switch workspace |
 | `Mod`+`Alt`+`Up` / `Down` | Switch workspace up / down |
 | `Mod`+`R` | Cycle column width |
@@ -103,6 +117,8 @@ modules/home/          # user: fish, ghostty, neovim, niri keybinds, cli tools�
 | `Mod`+`Shift`+`E` | Quit niri |
 | `Mod`+`L` | Lock session |
 | `Mod`+`Shift`+`Ctrl`+`L` | Lock session & suspend |
+
+See `modules/home/niri.nix` for the full current list (arrows, media keys, tabbed, floating, resize, etc.).
 
 ## Reskin it
 
@@ -116,14 +132,15 @@ stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 ## Verifying changes
 
 You can develop this on **macOS**, but a NixOS system can't be *built* there
-without a Linux builder — these all work local"ly as pure evaluation/lint:
+without a Linux builder — these all work locally as pure evaluation/lint:
 
 ```sh
 nix flake check                                              # evaluate everything
 nix flake show                                               # list outputs
 nix fmt                                                      # format (alejandra)
 nix run nixpkgs#statix -- check . && nix run nixpkgs#deadnix # lint
-nix eval .#nixosConfigurations.nnn.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.michal-pc.config.system.build.toplevel.drvPath
+# On macOS: nix build .#darwinConfigurations.michal-macbook.system
 ```
 
 On a NixOS box (or with a remote/`linux-builder`) you can smoke-test in a VM:
@@ -138,12 +155,12 @@ nixos-rebuild build-vm --flake .#<HOSTNAME>
 [`.github/workflows/check.yml`](.github/workflows/check.yml) runs on every push
 and PR:
 
-- **eval** — `nix flake check --no-build` evaluates the whole config (the fast,
+- **eval** — `nix flake check --no-build --all-systems` evaluates the whole config (the fast,
   reliable signal: catches option typos and niri schema errors).
 - **lint** — `alejandra --check`, `statix`, `deadnix`.
 - **build** — realises the full system closure; runs on `main` / manual
   dispatch. niri and noctalia are pulled prebuilt from their cachix caches
-  (`niri.cachix.org`, `noctalia.cachix.org`), so it finishes in minutes instead
+  (`niri-epireyn.cachix.org`, `noctalia.cachix.org`), so it finishes in minutes instead
   of compiling C++/Rust from source. Delete the job if you don't want it.
 
 > **Commit a `flake.lock`.** Generate it once on a machine with Nix
@@ -155,8 +172,7 @@ and PR:
 - Secrets: add [sops-nix](https://github.com/Mic92/sops-nix) or
   [agenix](https://github.com/ryantm/agenix).
 - Declarative disks: add [disko](https://github.com/nix-community/disko).
-- Multi-host: factor `hosts/` into one folder per machine and add more
-  `nixosConfigurations` entries.
+- Multi-host: `hosts/michal-pc/` and `hosts/michal-macbook/` exist; add more entries to `flake.nix` as needed.
 
 ### Binary caches (no source builds)
 

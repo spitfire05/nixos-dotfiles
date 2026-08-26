@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  # Zed — the GUI code editor. Neovim stays the terminal `$EDITOR`
-  # (see modules/home/neovim.nix); Zed is what opens when you double-click a
+  # Zed — the GUI code editor. Helix is the terminal $EDITOR (via defaultEditor = true in helix.nix);
+  # Zed is what opens when you double-click a
   # text file in Nautilus or pick "open with default" from anywhere else.
   #
   # Stylix's zed target syncs our Maple Mono / Noto fonts into Zed. For the

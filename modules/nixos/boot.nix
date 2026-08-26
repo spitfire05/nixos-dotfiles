@@ -11,5 +11,5 @@
   boot.initrd.verbose = false;
 
   # Additional in-tree modules to load
-  boot.kernelModules = [ "ntsync" ];
+  boot.kernelModules = ["ntsync"];
 }
