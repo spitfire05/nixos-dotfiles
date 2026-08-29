@@ -42,20 +42,4 @@
   # userContent.css into the named profile and flips on the
   # `toolkit.legacyUserProfileCustomizations.stylesheets` pref for us.
   stylix.targets.zen-browser.profileNames = ["default"];
-
-  programs.mangohud = {
-    enable = pkgs.stdenv.hostPlatform.isLinux;
-    settings = {
-      preset = 3;
-      no_display = true;
-      font_size = lib.mkForce 24; # Forced because of confilct with stylix
-      vram = true;
-      ram = true;
-      swap = true;
-      display_server = true;
-      wine = true;
-      winesync = true;
-      gamemode = true;
-    };
-  };
 }

@@ -37,5 +37,6 @@
     ];
   };
 
+  # So does gamemode
   programs.gamemode.enable = true;
 }
