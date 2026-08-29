@@ -20,6 +20,8 @@
   };
 
   home.packages = with pkgs; [
+    gamescope
+
     # Custom wrapper to run games with gamemoderun + mangohud + selected Proton envs.
     # When MOONSHINE_CLIENT_FRAMERATE is present (i.e. the game was launched by
     # Moonshine for a remote client), we addiotnally wrap the game in gamescope.
