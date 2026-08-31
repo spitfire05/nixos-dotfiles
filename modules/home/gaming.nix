@@ -20,6 +20,8 @@
   };
 
   home.packages = with pkgs; [
+    gamescope
+
     # Custom wrapper to run games with gamemoderun + mangohud + selected Proton envs.
     (writeShellScriptBin "gamerun" ''
       if [ $# -eq 0 ]; then
