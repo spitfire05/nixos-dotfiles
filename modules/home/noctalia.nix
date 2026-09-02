@@ -16,6 +16,7 @@
     systemd.enable = true;
 
     settings = {
+      location.auto_locate = true;
       backdrop.enabled = true;
       bar.default = {
         start = ["launcher" "wallpaper" "workspaces" "cpu" "ram" "network_rx" "network_tx"];
