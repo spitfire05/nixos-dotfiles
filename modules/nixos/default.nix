@@ -4,14 +4,12 @@
     ./networking.nix
     ./audio.nix
     ./hardware.nix
-    # ./apple-studio-display.nix # optional: comment out if you have no Studio Display
     ./fonts.nix
     ./niri.nix
     ./noctalia.nix
     ./desktop.nix
     ./stylix.nix
     ./users.nix
-    ./docker.nix # optional: comment out if you don't want containers
     ./moonshine.nix
   ];
 
