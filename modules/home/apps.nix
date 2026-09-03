@@ -16,7 +16,7 @@
       localsend
       signal-desktop
       darktable
-      spotify
+      spotatui
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       # Nautilus (GNOME Files): a sensible GTK file manager. Pairs with the gvfs
@@ -25,6 +25,16 @@
       nautilus
       kdePackages.okular
     ];
+
+  xdg.desktopEntries.spotatui = {
+    name = "Spotatui (Spotify TUI)";
+    genericName = "Music Player";
+    exec = "ghostty -e spotatui";
+    icon = "spotify";
+    type = "Application";
+    startupNotify = true;
+    categories = ["AudioVideo" "Audio"];
+  };
 
   # Zen browser — Firefox-based, from the community flake (beta channel).
   # Managed through the flake's home-manager module (rather than just dropping
