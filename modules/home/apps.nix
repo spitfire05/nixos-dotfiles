@@ -29,7 +29,10 @@
   xdg.desktopEntries.spotatui = {
     name = "Spotatui (Spotify TUI)";
     genericName = "Music Player";
-    exec = "ghostty -e spotatui";
+    exec =
+      if pkgs.stdenv.hostPlatform.isLinux
+      then "ghostty -e spotatui"
+      else "alacritty -e spotatui";
     icon = "spotify";
     type = "Application";
     startupNotify = true;
