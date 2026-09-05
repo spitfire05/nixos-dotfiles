@@ -1,4 +1,8 @@
-{local, ...}: {
+{
+  local,
+  pkgs,
+  ...
+}: {
   networking.networkmanager.enable = true;
 
   networking.interfaces = {
@@ -28,6 +32,16 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # TODO: Move printing to own module
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint
+      cups-bjnp
+    ];
   };
 
   services.openssh = {
