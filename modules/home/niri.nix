@@ -115,7 +115,13 @@
         "launcher"
       ];
       "Mod+B".action.spawn = "zen-beta"; # browser
-      "Mod+E".action.spawn = "nautilus"; # file manager
+      "Mod+E".action.spawn = [
+        "ghostty"
+        "-e"
+        "yazi"
+        "$HOME"
+      ];
+      "Mod+Shift+E".action.spawn = "nautilus"; # file manager
 
       # Window management
       "Mod+Q".action.close-window = {};
@@ -183,7 +189,7 @@
 
       # Help + session
       "Mod+Shift+Slash".action.show-hotkey-overlay = {};
-      "Mod+Shift+E".action.quit = {};
+      "Mod+Shift+Escape".action.quit = {};
 
       # Media / brightness keys
       "XF86AudioRaiseVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
