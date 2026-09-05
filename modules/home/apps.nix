@@ -26,12 +26,19 @@
       kdePackages.okular
     ];
 
+  xdg.configFile."spotatui/config.yml".text = ''
+    behavior:
+      enable_global_song_count: false
+    theme:
+      preset: Terminal (ANSI)
+  '';
+
   xdg.desktopEntries.spotatui = {
     name = "Spotatui (Spotify TUI)";
     genericName = "Music Player";
     exec =
       if pkgs.stdenv.hostPlatform.isLinux
-      then "ghostty -e spotatui"
+      then "foot spotatui"
       else "alacritty -e spotatui";
     icon = "spotify";
     type = "Application";

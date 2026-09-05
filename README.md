@@ -13,8 +13,8 @@
 | Compositor        | [niri](https://github.com/YaLTeR/niri) (scrollable-tiling Wayland) via [niri-flake](https://github.com/epireyn/niri-flake) |
 | Shell/UI          | [Noctalia](https://github.com/noctalia-dev/noctalia-shell) **v5** (bar, launcher, notifications, lock, control center)     |
 | Theming           | [Stylix](https://github.com/nix-community/stylix) with the **Catppuccin Mocha** palette — one scheme themes everything     |
-| Terminal          | [Ghostty](https://ghostty.org)                                                                                             |
-| Shell + prompt    | Fish + [Starship](https://starship.rs) (autosuggestions, syntax highlighting, fzf, zoxide)                                  |
+| Terminal          | [Foot](https://codeberg.org/dnkl/foot)                                                                                             |
+| Shell + prompt    | Fish + [Starship](https://starship.rs) (autosuggestions, syntax highlighting, fzf, zoxide)                                 |
 | Editor (GUI)      | [Zed](https://zed.dev) — themed via Stylix; default handler for text/source files                                          |
 | Editor (terminal) | [Helix](https://helix-editor.com/); the `$EDITOR`                                                                          |
 | Browser           | [Zen](https://zen-browser.app) (beta channel, via the community flake)                                                     |
@@ -81,7 +81,7 @@ local.nix              # your machine-local identity (skip-worktree)
 hosts/michal-pc/       # Linux host (NVIDIA, mounts, etc.)
 hosts/michal-macbook/  # Darwin host
 modules/nixos/         # system: boot, audio, niri, noctalia, stylix, users…
-modules/home/          # user: fish, ghostty, helix, niri keybinds, cli tools…
+modules/home/          # user: fish, foot, helix, niri keybinds, cli tools…
 modules/darwin/        # macOS-specific modules
 ```
 
@@ -91,8 +91,8 @@ GUI/desktop apps and the niri/Noctalia stack are Linux-only (conditional imports
 
 The flake also exports `darwinConfigurations.michal-macbook`.
 
-User configuration is shared via `modules/home`; Linux-only modules (niri, noctalia, ghostty, zed, media, etc.) are skipped on Darwin.
-- Terminal: Alacritty (Ghostty is Linux-only).
+User configuration is shared via `modules/home`; Linux-only modules (niri, noctalia, foot, zed, media, etc.) are skipped on Darwin.
+- Terminal: Alacritty (Foot is Linux-only).
 - Rebuild with the `rebuild` fish alias (`nh darwin switch`).
 - Use the same `local.nix` (hostName etc. can differ per-machine via skip-worktree).
 
@@ -100,7 +100,7 @@ User configuration is shared via `modules/home`; Linux-only modules (niri, nocta
 
 | Keys | Action |
 |------|--------|
-| `Mod`+`Return` | Terminal (ghostty) |
+| `Mod`+`Return` | Terminal |
 | `Mod`+`Space` | Noctalia launcher |
 | `Mod`+`B` | Browser (Zen) |
 | `Mod`+`E` | File manager (Nautilus) |

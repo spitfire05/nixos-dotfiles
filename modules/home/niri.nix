@@ -105,7 +105,7 @@
     # actions take `{ }`; spawn takes a string or a list of argv strings.
     binds = {
       # Launchers
-      "Mod+Return".action.spawn = "ghostty";
+      "Mod+Return".action.spawn = "foot";
       # Noctalia v5 IPC: `noctalia msg <command>` (the old `ipc call` form and
       # the `noctalia-shell` binary are gone). The launcher is a named panel.
       "Mod+Space".action.spawn = [
@@ -116,8 +116,7 @@
       ];
       "Mod+B".action.spawn = "zen-beta"; # browser
       "Mod+E".action.spawn = [
-        "ghostty"
-        "-e"
+        "foot"
         "yazi"
         "$HOME"
       ];

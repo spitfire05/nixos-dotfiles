@@ -18,8 +18,8 @@
   ];
 
   linuxOnly = [
+    ./foot.nix
     ./gaming.nix
-    ./ghostty.nix
     ./gtk.nix
     ./niri.nix
     ./noctalia.nix

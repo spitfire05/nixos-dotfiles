@@ -17,7 +17,7 @@
     };
   };
 
-  # Alactritty on Darwin, as ghostty is not available
+  # Alactritty on Darwin, as foot is not available
   programs.alacritty = {
     enable = lib.mkIf isDarwin true;
     settings = {
