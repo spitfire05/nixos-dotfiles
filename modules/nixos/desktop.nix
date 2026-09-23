@@ -35,6 +35,7 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
+    protontricks.enable = true;
   };
 
   # So does gamemode
