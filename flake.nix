@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +49,7 @@
   outputs = {
     nixpkgs,
     nix-darwin,
+    nixos-wsl,
     home-manager,
     niri,
     noctalia,
@@ -98,6 +101,36 @@
           home-manager.extraSpecialArgs = {
             inherit inputs username local;
             isDarwin = false;
+            isWsl = false;
+          };
+          home-manager.users.${username} = import ./modules/home;
+        }
+      ];
+    };
+
+    nixosConfigurations.DPF663MFR = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs username local;
+      };
+      modules = [
+        nixos-wsl.nixosModules.default
+        stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+
+        ./hosts/DPF663MFR
+        ./modules/nixos-wsl
+
+        {
+          nixpkgs.config.allowUnfree = true;
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-bak";
+          home-manager.extraSpecialArgs = {
+            inherit inputs username local;
+            isDarwin = false;
+            isWsl = true;
           };
           home-manager.users.${username} = import ./modules/home;
         }
@@ -125,6 +158,7 @@
           home-manager.extraSpecialArgs = {
             inherit inputs username local;
             isDarwin = true;
+            isWsl = false;
           };
           home-manager.users.${username} = import ./modules/home;
         }
