@@ -1,8 +1,12 @@
 {
   pkgs,
   lib,
+  curseforge,
   ...
 }: {
+  imports = [curseforge.homeManagerModules.default];
+  programs.curseforge.enable = true;
+
   programs.mangohud = {
     enable = pkgs.stdenv.hostPlatform.isLinux;
     settings = {

@@ -48,6 +48,8 @@
     # Need to pin xwayland-satellite to v0.8.1 till this gets released:
     # https://github.com/Supreeeme/xwayland-satellite/pull/494
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite/v0.8.1";
+
+    curseforge.url = "github:spitfire05/curseforge-appimage-nix";
   };
 
   outputs = {
@@ -59,6 +61,7 @@
     noctalia,
     stylix,
     xwayland-satellite,
+    curseforge,
     ...
   } @ inputs: let
     # Personal, machine-local settings. Tracked with placeholder defaults but
@@ -104,7 +107,7 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-bak";
           home-manager.extraSpecialArgs = {
-            inherit inputs username local;
+            inherit inputs username local curseforge;
             isDarwin = false;
             isWsl = false;
           };
