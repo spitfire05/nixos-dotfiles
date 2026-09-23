@@ -44,6 +44,10 @@
       # Its home-manager module reuses HM's firefox module, so share ours.
       inputs.home-manager.follows = "home-manager";
     };
+
+    # Need to pin xwayland-satellite to v0.8.1 till this gets released:
+    # https://github.com/Supreeeme/xwayland-satellite/pull/494
+    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite/v0.8.1";
   };
 
   outputs = {
@@ -54,6 +58,7 @@
     niri,
     noctalia,
     stylix,
+    xwayland-satellite,
     ...
   } @ inputs: let
     # Personal, machine-local settings. Tracked with placeholder defaults but
@@ -74,7 +79,7 @@
     nixosConfigurations.michal-pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs username local;
+        inherit inputs username local xwayland-satellite;
       };
       modules = [
         niri.nixosModules.niri
