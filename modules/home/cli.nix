@@ -55,6 +55,8 @@
     settings.updates.auto_update = true;
   };
 
+  programs.opencode.enable = true;
+
   # ── Everything else ───────────────────────────────────────────────────────
   home.packages = with pkgs; [
     # navigation / files
@@ -82,7 +84,6 @@
     # dev stuff
     codebook
     marksman
-    opencode
   ];
 
   # Codebook config
