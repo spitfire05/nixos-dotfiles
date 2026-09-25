@@ -83,6 +83,7 @@
     rustup
     codebook
     marksman
+    opencode
   ];
 
   # Codebook config
