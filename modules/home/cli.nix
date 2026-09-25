@@ -80,7 +80,6 @@
     nixd
 
     # dev stuff
-    rustup
     codebook
     marksman
     opencode
