@@ -47,9 +47,15 @@
 
     # Need to pin xwayland-satellite to v0.8.1 till this gets released:
     # https://github.com/Supreeeme/xwayland-satellite/pull/494
-    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite/v0.8.1";
+    xwayland-satellite = {
+      url = "github:Supreeeme/xwayland-satellite/v0.8.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    curseforge.url = "github:spitfire05/curseforge-appimage-nix";
+    curseforge = {
+      url = "github:spitfire05/curseforge-appimage-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
