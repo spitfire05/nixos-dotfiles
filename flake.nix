@@ -48,10 +48,9 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # Need to pin xwayland-satellite to v0.8.1 till this gets released:
-    # https://github.com/Supreeeme/xwayland-satellite/pull/494
+    # TODO: Drop this input once nixpkgs has v0.8.3
     xwayland-satellite = {
-      url = "github:Supreeeme/xwayland-satellite/v0.8.1";
+      url = "github:Supreeeme/xwayland-satellite/v0.8.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
