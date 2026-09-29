@@ -53,7 +53,7 @@
         }
         {
           name = "c-sharp";
-          language-servers = ["omnisharp" "codebook"];
+          language-servers = ["csharp-ls" "codebook"];
         }
         {
           name = "nix";
