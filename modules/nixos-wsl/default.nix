@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./stylix.nix
     ./users.nix
@@ -17,8 +17,12 @@
     options = "--delete-older-than 14d";
   };
 
-  # For vscode-server to work on NixOS-WSL:
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      icu
+    ];
+  };
 
   # A lean system-wide package set; everything user-facing lives in home-manager.
   environment.systemPackages = [];
