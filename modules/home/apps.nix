@@ -16,6 +16,7 @@
       localsend
       signal-desktop
       darktable
+      rapidraw
       spotify
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
