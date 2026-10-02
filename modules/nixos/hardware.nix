@@ -20,4 +20,7 @@
   # Fingerprint reader (enroll with `fprintd-enroll`). Wires fingerprint auth
   # into PAM for login/sudo via the libfprint stack.
   services.fprintd.enable = true;
+
+  # For USB disk automount
+  services.udisks2.enable = true;
 }

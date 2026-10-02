@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   username,
   local,
   isDarwin ? false,
@@ -53,6 +54,19 @@ in {
   programs.home-manager.enable = true;
 
   home.pointerCursor.enable = lib.mkIf (isLinux && !isWsl) true;
+
+  # USB Automount
+  services.udiskie = {
+    enable = isLinux && !isWsl;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
+      };
+    };
+  };
 
   home.file = lib.mkIf (local.hostName == "michal-pc") {
     dev.source = config.lib.file.mkOutOfStoreSymlink "/mnt/dev";
