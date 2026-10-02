@@ -99,6 +99,13 @@
           fixed = 920;
         };
       }
+
+      {
+        matches = [
+          {app-id = "rapidraw";}
+        ];
+        open-maximized = true;
+      }
     ];
 
     # niri-flake's canonical attribute form: `action.<name> = <args>`. No-arg
