@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   username,
-  xwayland-satellite,
   ...
 }: {
   # Enable niri from niri-flake. The module pulls in systemd units, polkit,
@@ -29,8 +28,8 @@
     };
   };
 
-  environment.systemPackages = [
-    xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default # XWayland support
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite # XWayland support
   ];
 
   # Minimal graphical login: tuigreet drops you straight into a niri session.

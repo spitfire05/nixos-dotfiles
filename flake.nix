@@ -48,12 +48,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # TODO: Drop this input once nixpkgs has v0.8.3
-    xwayland-satellite = {
-      url = "github:Supreeeme/xwayland-satellite/v0.8.3";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     curseforge = {
       url = "github:spitfire05/curseforge-appimage-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -68,7 +62,6 @@
     niri,
     noctalia,
     stylix,
-    xwayland-satellite,
     curseforge,
     ...
   } @ inputs: let
@@ -90,7 +83,7 @@
     nixosConfigurations.michal-pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs username local xwayland-satellite;
+        inherit inputs username local;
       };
       modules = [
         niri.nixosModules.niri
