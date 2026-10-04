@@ -45,6 +45,9 @@
         telemetry_enabled = false;
         panel.control_center_placement = "floating";
       };
+      lockscreen = {
+        transition = [];
+      };
     };
   };
 }
