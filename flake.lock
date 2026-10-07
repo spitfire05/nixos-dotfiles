@@ -75,11 +75,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791376025,
-        "narHash": "sha256-1nmbDJeLg2Ake9ovZ+722BT/XdoLrEl5IUZmUSnOuMg=",
+        "lastModified": 1791378280,
+        "narHash": "sha256-xhMVxHH3RnYWEAwGFNbHFcIyIMpzXQrzQnFDkBzKq54=",
         "owner": "spitfire05",
         "repo": "curseforge-appimage-nix",
-        "rev": "8e0a29ca32855c35dc0c05dfaea40e349a148d4d",
+        "rev": "5267c6a4ff540d11f2093f38a6febaa9b7405afa",
         "type": "github"
       },
       "original": {
