@@ -14,8 +14,8 @@
     # Great Wave off Kanagawa, vendored in-repo (pngquant-optimized).
     image = ../../themes/wallpaper.png;
 
-    # A hint of terminal transparency for that layered desktop look.
-    opacity.terminal = 0.95;
+    # No terminal transparency on WSLg
+    opacity.terminal = 1.0;
 
     cursor = {
       package = pkgs.bibata-cursors;
