@@ -18,8 +18,15 @@
     settings = {
       location.auto_locate = true;
       backdrop.enabled = true;
+      bar.order = ["default"];
       bar.default = {
-        start = ["launcher" "wallpaper" "workspaces" "cpu" "ram" "network_rx" "network_tx"];
+        start = ["workspaces" "cpu" "ram" "network_rx" "network_tx"];
+      };
+      widget = {
+        workspaces = {
+          label_source = "name";
+          max_label_chars = 5;
+        };
       };
       idle = {
         behavior_order = ["lock" "screen-off" "lock-and-suspend"];

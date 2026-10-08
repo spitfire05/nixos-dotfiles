@@ -5,6 +5,24 @@
 
     prefer-no-csd = true;
 
+    workspaces = {
+      "01-web" = {
+        name = "web";
+      };
+      "02-dev" = {
+        name = "dev";
+      };
+      "03-game" = {
+        name = "game";
+      };
+      "04-media" = {
+        name = "media";
+      };
+      "05-chat" = {
+        name = "chat";
+      };
+    };
+
     input = {
       keyboard.xkb = {
         layout = "pl";
@@ -104,7 +122,54 @@
         matches = [
           {app-id = "rapidraw";}
         ];
+        open-on-workspace = "media";
         open-maximized = true;
+      }
+
+      {
+        matches = [
+          {app-id = "Spotify";}
+        ];
+        open-on-workspace = "media";
+        open-maximized = true;
+      }
+
+      {
+        matches = [
+          {app-id = "steam";}
+        ];
+        open-on-workspace = "game";
+        open-maximized = true;
+      }
+
+      {
+        matches = [
+          {app-id = "curseforge";}
+        ];
+        open-on-workspace = "game";
+      }
+
+      {
+        matches = [
+          {app-id = "zen-beta";}
+        ];
+        open-on-workspace = "web";
+        open-maximized = true;
+      }
+
+      {
+        matches = [
+          {app-id = "vesktop";}
+        ];
+        open-on-workspace = "chat";
+        open-maximized = true;
+      }
+
+      {
+        matches = [
+          {app-id = "signal";}
+        ];
+        open-on-workspace = "chat";
       }
     ];
 
