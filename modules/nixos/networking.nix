@@ -5,12 +5,6 @@
 }: {
   networking.networkmanager.enable = true;
 
-  networking.interfaces = {
-    enp34s0 = {
-      # This needs to match the ethernet iface name
-      wakeOnLan.enable = true;
-    };
-  };
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [

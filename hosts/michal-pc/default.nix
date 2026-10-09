@@ -56,6 +56,13 @@
 
   networking.hostName = local.hostName;
 
+  networking.interfaces = {
+    enp34s0 = {
+      # This needs to match the ethernet iface name
+      wakeOnLan.enable = true;
+    };
+  };
+
   # ⇩ Timezone comes from local.nix; locale/keyboard layout below.
   time.timeZone = local.timeZone;
   i18n.defaultLocale = "en_US.UTF-8";
