@@ -1,21 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}: {
   imports = [
-    ./stylix.nix
-    ./users.nix
+    ../nixos/stylix.nix
+    ../nixos/users.nix
   ];
 
-  # Flakes + the modern nix CLI.
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.auto-optimise-store = true;
+  # WSLg has no transparency
+  stylix.opacity.terminal = lib.mkForce 1.0;
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-  };
+  users.users.${username}.extraGroups = [
+    "wheel" # sudo
+    "networkmanager"
+    "video"
+    "audio"
+    "input"
+  ];
 
   programs.nix-ld = {
     enable = true;
@@ -23,10 +26,4 @@
       icu
     ];
   };
-
-  # A lean system-wide package set; everything user-facing lives in home-manager.
-  environment.systemPackages = [];
-
-  environment.sessionVariables.MANROFFOPT = "-c";
-  environment.sessionVariables.MANPAGER = "sh -c 'col -bx | bat -l man -p'";
 }

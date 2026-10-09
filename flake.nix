@@ -79,6 +79,31 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs devSystems;
     pkgsFor = system: nixpkgs.legacyPackages.${system};
+
+    common = {
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      nix.settings.auto-optimise-store = true;
+
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
+
+      environment.sessionVariables = {
+        MANROFFOPT = "-c";
+        MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      };
+      environment.variables = {
+        MANROFFOPT = "-c";
+        MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      };
+
+      environment.systemPackages = [];
+    };
   in {
     nixosConfigurations.michal-pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -86,6 +111,7 @@
         inherit inputs username local;
       };
       modules = [
+        common
         niri.nixosModules.niri
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
@@ -112,7 +138,10 @@
             isDarwin = false;
             isWsl = false;
           };
-          home-manager.users.${username} = import ./modules/home;
+          home-manager.users.${username} = {config, ...}: {
+            imports = [./modules/home];
+            home.file.dev.source = config.lib.file.mkOutOfStoreSymlink "/mnt/dev";
+          };
         }
       ];
     };
@@ -123,6 +152,7 @@
         inherit inputs username local;
       };
       modules = [
+        common
         nixos-wsl.nixosModules.default
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
@@ -152,6 +182,7 @@
         inherit inputs username local;
       };
       modules = [
+        common
         stylix.darwinModules.stylix
         home-manager.darwinModules.home-manager
 

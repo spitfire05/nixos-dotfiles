@@ -13,13 +13,6 @@
     ./moonshine.nix
   ];
 
-  # Flakes + the modern nix CLI.
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.auto-optimise-store = true;
-
   # Pull niri and noctalia as prebuilt binaries instead of compiling them.
   nix.settings.extra-substituters = [
     "https://niri-epireyn.cachix.org"
@@ -30,19 +23,7 @@
     "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
   ];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-  };
-
   # (allowUnfree + overlays are set in flake.nix where the inputs are in scope.)
-
-  # A lean system-wide package set; everything user-facing lives in home-manager.
-  environment.systemPackages = [];
-
-  environment.sessionVariables.MANROFFOPT = "-c";
-  environment.sessionVariables.MANPAGER = "sh -c 'col -bx | bat -l man -p'";
 
   environment.etc = {
     "1password/custom_allowed_browsers" = {

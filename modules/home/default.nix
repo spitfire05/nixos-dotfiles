@@ -1,9 +1,7 @@
 {
-  config,
   lib,
   pkgs,
   username,
-  local,
   isDarwin ? false,
   isWsl ? false,
   ...
@@ -66,9 +64,5 @@ in {
         file_manager = "${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
       };
     };
-  };
-
-  home.file = lib.mkIf (local.hostName == "michal-pc") {
-    dev.source = config.lib.file.mkOutOfStoreSymlink "/mnt/dev";
   };
 }
