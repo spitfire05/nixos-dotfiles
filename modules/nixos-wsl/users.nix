@@ -14,8 +14,6 @@
       "video"
       "audio"
       "input"
-      "gamemode"
-      "moonshine"
     ];
     shell = pkgs.fish;
   };
