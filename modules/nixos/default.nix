@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./boot.nix
     ./networking.nix
@@ -12,6 +12,14 @@
     ./users.nix
     ./moonshine.nix
   ];
+
+  cursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
+
+  nix.gc.dates = "weekly";
 
   # Pull niri and noctalia as prebuilt binaries instead of compiling them.
   nix.settings.extra-substituters = [

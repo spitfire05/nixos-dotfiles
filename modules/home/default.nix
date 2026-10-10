@@ -39,7 +39,7 @@ in {
   imports =
     common
     ++ lib.optionals isLinux linuxOnly
-    ++ lib.optionals (!isWsl) nativeLinuxOnly
+    ++ lib.optionals (!isWsl && isLinux) nativeLinuxOnly
     ++ lib.optionals (!isWsl || isDarwin) nativeLinuxAndDarwin;
 
   home.username = username;
