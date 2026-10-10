@@ -21,6 +21,10 @@
     ./foot.nix
   ];
 
+  darwinOnly = [
+    ./alacritty.nix
+  ];
+
   # non-WSL
   nativeLinuxOnly = [
     ./gaming.nix
@@ -39,6 +43,7 @@ in {
   imports =
     common
     ++ lib.optionals isLinux linuxOnly
+    ++ lib.optionals isDarwin darwinOnly
     ++ lib.optionals (!isWsl && isLinux) nativeLinuxOnly
     ++ lib.optionals (!isWsl || isDarwin) nativeLinuxAndDarwin;
 
