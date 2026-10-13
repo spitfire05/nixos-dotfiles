@@ -18,7 +18,7 @@
 | Editor (GUI)      | [Zed](https://zed.dev) — themed via Stylix; default handler for text/source files                                          |
 | Editor (terminal) | [Helix](https://helix-editor.com/); the `$EDITOR`                                                                          |
 | Browser           | [Zen](https://zen-browser.app) (beta channel, via the community flake)                                                     |
-| File manager      | [Nautilus](https://apps.gnome.org/Nautilus/) (GNOME Files)                                                                 |
+| File manager      | [Yazi](https://yazi-rs.github.io/) + [Nautilus](https://apps.gnome.org/Nautilus/) (GNOME Files)                                                                 |
 | Font              | Jetbrains Mono NF                                                                                                          |
 | Login             | greetd + tuigreet → niri session (autologin, security achieved via root partition encryption, Omarchy-style)               |
 | Gaming            | Steam + Proton-GE + Gamemode + Mangohud                                                                                    |
