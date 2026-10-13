@@ -15,6 +15,7 @@
     ./git.nix
     ./direnv.nix
     ./helix.nix
+    ./yazi.nix
   ];
 
   linuxOnly = [
@@ -53,7 +54,7 @@ in {
     then "/Users/${username}"
     else "/home/${username}";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
   home.pointerCursor.enable = lib.mkIf (isLinux && !isWsl) true;

@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   username,
   isDarwin,
@@ -53,7 +52,6 @@
   home.packages = with pkgs; [
     # navigation / files
     eza # alternative listing to lsd, handy for `eza --tree`
-    yazi # TUI file manager
 
     # system / inspection
     dust # disk usage (du replacement)
