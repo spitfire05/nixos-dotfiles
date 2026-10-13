@@ -3,12 +3,15 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      keys.normal.space = {
-        q = ":q";
-        Q = ":q!";
-        x = ":bc";
-        X = ":bc!";
-        g = [
+      keys.normal = {
+        C-y = [
+          ":sh rm -f /tmp/unique-file"
+          ":insert-output yazi \"%{buffer_name}\" --chooser-file=/tmp/unique-file"
+          ":sh printf \"\x1b[?1049h\x1b[?2004h\" > /dev/tty"
+          ":open %sh{cat /tmp/unique-file}"
+          ":redraw"
+        ];
+        C-g = [
           ":write-all"
           ":new"
           ":insert-output lazygit"
@@ -16,6 +19,12 @@
           ":redraw"
           ":reload-all"
         ];
+        space = {
+          q = ":q";
+          Q = ":q!";
+          x = ":bc";
+          X = ":bc!";
+        };
       };
       editor = {
         end-of-line-diagnostics = "hint";
