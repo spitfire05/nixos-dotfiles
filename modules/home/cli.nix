@@ -50,9 +50,6 @@
 
   # ── Everything else ───────────────────────────────────────────────────────
   home.packages = with pkgs; [
-    # navigation / files
-    eza # alternative listing to lsd, handy for `eza --tree`
-
     # system / inspection
     dust # disk usage (du replacement)
     duf # disk free (df replacement)

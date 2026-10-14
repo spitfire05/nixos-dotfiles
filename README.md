@@ -24,7 +24,7 @@
 | Gaming            | Steam + Proton-GE + Gamemode + Mangohud                                                                                    |
 
 ### Modern command-line toolset
-`lsd` · `fzf` · `bat` · `btop` · `ripgrep` · `fd` · `zoxide` · `eza` · `yazi` ·
+`lsd` · `fzf` · `bat` · `btop` · `ripgrep` · `fd` · `zoxide` · `yazi` ·
 `dust` · `duf` · `procs` · `bandwhich` · `gping` · `zellij` ·
 `tealdeer` · `jq` · `yq` · `lazygit` · `delta` · `gh` · `direnv` + `nix-direnv` ·
 `nh` · `nom`.
