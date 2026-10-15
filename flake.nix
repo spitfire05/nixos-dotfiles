@@ -141,7 +141,7 @@
       ];
     };
 
-    nixosConfigurations.DPF663MFR = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.DPF664KK9 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs username local;
@@ -152,7 +152,7 @@
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
 
-        ./hosts/DPF663MFR
+        ./hosts/DPF664KK9
         ./modules/nixos-wsl
 
         {
