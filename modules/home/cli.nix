@@ -71,6 +71,9 @@
     # dev stuff
     codebook
     marksman
+
+    # rendering
+    glow
   ];
 
   # Codebook config

@@ -12,10 +12,22 @@
       ];
     };
 
+    settings = {
+      plugin.prepend_previewers = [
+        {
+          url = "*.md";
+          run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
+        }
+      ];
+    };
+
     plugins = with pkgs.yaziPlugins; {
       starship = {
         package = starship;
         setup = true;
+      };
+      piper = {
+        package = piper;
       };
     };
   };
