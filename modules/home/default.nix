@@ -16,6 +16,7 @@
     ./direnv.nix
     ./helix.nix
     ./yazi.nix
+    ./opencode.nix
   ];
 
   linuxOnly = [

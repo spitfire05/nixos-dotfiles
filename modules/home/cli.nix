@@ -46,8 +46,6 @@
     settings.updates.auto_update = true;
   };
 
-  programs.opencode.enable = true;
-
   # ── Everything else ───────────────────────────────────────────────────────
   home.packages = with pkgs; [
     # system / inspection
