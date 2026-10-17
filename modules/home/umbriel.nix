@@ -3,6 +3,13 @@
   programs.umbriel = {
     enable = true;
     settings = {
+      workspace = [
+        {name = "web";}
+        {name = "dev";}
+        {name = "game";}
+        {name = "media";}
+        {name = "chat";}
+      ];
       layout.scrolling = {
         default_extent_fraction = 0.5;
       };
