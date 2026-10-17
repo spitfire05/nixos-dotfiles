@@ -3,7 +3,6 @@
   programs.umbriel = {
     enable = true;
     settings = {
-      general.autostart = ["noctalia"];
       layout.scrolling = {
         default_extent_fraction = 0.5;
       };
