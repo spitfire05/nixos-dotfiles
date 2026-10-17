@@ -87,7 +87,7 @@
 
         # Screenshots
         "Print" = "spawn:noctalia msg screenshot-region";
-        "Mod+Print" = "spawn:noctalia msg screenshot-fullscreen pick";
+        "Mod+Print" = "spawn:noctalia msg screenshot-annotate";
         "Ctrl+Print" = "spawn:noctalia msg screenshot-fullscreen";
 
         # Media
