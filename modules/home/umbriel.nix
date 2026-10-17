@@ -35,6 +35,8 @@
         "Mod+BracketRight" = "window-consume-or-expel-right";
         "Mod+Left" = "window-focus-left";
         "Mod+Right" = "window-focus-right";
+        "Mod+Alt+Left" = "column-focus-tab-previous";
+        "Mod+Alt+Right" = "column-focus-tab-next";
         "Mod+Down" = "window-focus-down";
         "Mod+Up" = "window-focus-up";
         "Mod+Shift+Left" = "column-move-left";
@@ -81,6 +83,50 @@
         "XF86MonBrightnessUp" = "spawn:brightnessctl set 5%+";
         "XF86MonBrightnessDown" = "spawn:brightnessctl set 5%-";
       };
+      window_rule = [
+        {corner_radius = 20;}
+        {
+          match.app_id = "^dev.noctalia.Noctalia$";
+          default_floating = true;
+          default_floating_size_px = {
+            width = 1080;
+            height = 920;
+          };
+        }
+        {
+          match.app_id = "^rapidraw$";
+          default_workspace = "media";
+          default_maximize_to_edges = true;
+        }
+        {
+          match.app_id = "^Spotify$";
+          default_workspace = "media";
+          default_maximize_to_edges = true;
+        }
+        {
+          match.app_id = "^steam$";
+          default_workspace = "game";
+          default_maximize_to_edges = true;
+        }
+        {
+          match.app_id = "^curseforge$";
+          default_workspace = "game";
+        }
+        {
+          match.app_id = "^zen-beta$";
+          default_workspace = "web";
+          default_maximize_to_edges = true;
+        }
+        {
+          match.app_id = "^vesktop$";
+          default_workspace = "chat";
+          default_maximize_to_edges = true;
+        }
+        {
+          match.app_id = "^signal$";
+          default_workspace = "chat";
+        }
+      ];
     };
   };
 }
