@@ -19,10 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Scrollable-tiling Wayland compositor + NixOS/home-manager modules.
-    # Deliberately does NOT follow our nixpkgs, so niri-flake's prebuilt
-    # packages stay byte-identical to what niri.cachix.org has cached.
-    niri.url = "github:epireyn/niri-flake";
+    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     # Noctalia desktop shell (v5 line). Pinned to the `cachix` branch: upstream
     # force-pushes there only after a commit's package is built and pushed to
@@ -59,7 +56,7 @@
     nix-darwin,
     nixos-wsl,
     home-manager,
-    niri,
+    umbriel,
     noctalia,
     stylix,
     curseforge,
@@ -107,7 +104,7 @@
       };
       modules = [
         common
-        niri.nixosModules.niri
+        umbriel.nixosModules.default
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
 
@@ -121,7 +118,7 @@
           # survives pnpm version bumps. (See modules/home/discord.nix.)
           nixpkgs.config.allowInsecurePredicate = pkg: nixpkgs.lib.getName pkg == "pnpm";
           nixpkgs.overlays = [
-            niri.overlays.niri
+            umbriel.overlays.default
             noctalia.overlays.default
           ];
 

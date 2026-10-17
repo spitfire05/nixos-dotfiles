@@ -31,7 +31,7 @@
   nativeLinuxOnly = [
     ./gaming.nix
     ./gtk.nix
-    ./niri.nix
+    ./umbriel.nix
     ./noctalia.nix
     ./media.nix
     ./discord.nix

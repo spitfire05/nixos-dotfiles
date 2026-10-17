@@ -5,7 +5,7 @@
     ./audio.nix
     ./hardware.nix
     ./fonts.nix
-    ./niri.nix
+    ./umbriel.nix
     ./noctalia.nix
     ./desktop.nix
     ./stylix.nix

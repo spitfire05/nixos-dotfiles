@@ -196,62 +196,6 @@
         "type": "github"
       }
     },
-    "niri": {
-      "inputs": {
-        "niri-stable": "niri-stable",
-        "niri-unstable": "niri-unstable",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable",
-        "xwayland-satellite-stable": "xwayland-satellite-stable",
-        "xwayland-satellite-unstable": "xwayland-satellite-unstable"
-      },
-      "locked": {
-        "lastModified": 1791912664,
-        "narHash": "sha256-gXTKti9vcdXUSK3i7Nw+TC6uaPHuK0lwV0N+fVFEDYs=",
-        "owner": "epireyn",
-        "repo": "niri-flake",
-        "rev": "83b374b02ebfacf46492e10e8b88a209f91292a2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "epireyn",
-        "repo": "niri-flake",
-        "type": "github"
-      }
-    },
-    "niri-stable": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1777115961,
-        "narHash": "sha256-ehSMsSpE+0k8r+2Vseu8kangsYxToZv3vinynsDp9zs=",
-        "owner": "niri-wm",
-        "repo": "niri",
-        "rev": "8ed0da44d974c32c6877d2f4630c314da0717ecb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "niri-wm",
-        "ref": "v26.04",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
-    "niri-unstable": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1791889142,
-        "narHash": "sha256-btWAVpdpl/43Jms3c+xaNF4EOS0pvTMkVE3jPdzLrhU=",
-        "owner": "niri-wm",
-        "repo": "niri",
-        "rev": "4263c9a17f80fc8019bd474f85b1cc1dcbac785c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "niri-wm",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -298,51 +242,19 @@
       "locked": {
         "lastModified": 1791734076,
         "narHash": "sha256-i5qk1kLiit98rRbh1AXmWBNT9QXC/y4l5Wk/u5EdpDQ=",
-        "owner": "NixOS",
+        "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "7fd4004d0511991fff3a0524856a9be09e28c5f0",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1791765022,
-        "narHash": "sha256-ZGq3ptZzA+oO0N/Wi/F+GbuTijLkYExD01LvpNFAvr0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "7993f34ee47e28a3d607a525aadc6c94b73be728",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1791734076,
-        "narHash": "sha256-i5qk1kLiit98rRbh1AXmWBNT9QXC/y4l5Wk/u5EdpDQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7fd4004d0511991fff3a0524856a9be09e28c5f0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1791594108,
         "narHash": "sha256-V0WmebqwEeAVZMqxfv7Dq7hpKkPPM19W50xQf3D1Kf4=",
@@ -355,9 +267,22 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1791594108,
+        "narHash": "sha256-V0WmebqwEeAVZMqxfv7Dq7hpKkPPM19W50xQf3D1Kf4=",
+        "rev": "6510408d147d8c5e6d76043e899e9251756f6a75",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1089111.6510408d147d/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
     "noctalia": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1791942860,
@@ -403,12 +328,12 @@
       "inputs": {
         "curseforge": "curseforge",
         "home-manager": "home-manager",
-        "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "stylix": "stylix",
+        "umbriel": "umbriel",
         "zen-browser": "zen-browser"
       }
     },
@@ -525,36 +450,43 @@
         "type": "github"
       }
     },
-    "xwayland-satellite-stable": {
-      "flake": false,
+    "umbriel": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3",
+        "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
+      },
       "locked": {
-        "lastModified": 1784679892,
-        "narHash": "sha256-Mb7jpqnrcYCfNSItIkkHpuR3YxWFxPuIBfcwNKlRBkk=",
-        "owner": "Supreeeme",
-        "repo": "xwayland-satellite",
-        "rev": "8d135d3b2854b30fd01ea6cd6c27e523dd50a839",
-        "type": "github"
+        "lastModified": 1792269789,
+        "narHash": "sha256-RkxJgatLP4DGpIpRAI1RFWsLCfXwhHe7WwQ4GtKDm7c=",
+        "ref": "refs/heads/main",
+        "rev": "62799bdaa8f310b458010d28b321cd7784d4e726",
+        "revCount": 1274,
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/umbriel"
       },
       "original": {
-        "owner": "Supreeeme",
-        "ref": "v0.8.2",
-        "repo": "xwayland-satellite",
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/umbriel"
       }
     },
-    "xwayland-satellite-unstable": {
-      "flake": false,
+    "xdg-desktop-portal-umbriel": {
+      "inputs": {
+        "nixpkgs": [
+          "umbriel",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1791203262,
-        "narHash": "sha256-+RlIyHipr7BOLsIC9jnpzbkLBsY6XbLhuPinAwJsYjo=",
-        "owner": "Supreeeme",
-        "repo": "xwayland-satellite",
-        "rev": "ae88928f7334556d298b8d9552abdf395931931b",
+        "lastModified": 1792026707,
+        "narHash": "sha256-4Y93egV/VYybIJ6D6tHEgbOzn2gtWxHRIyomOx5Gc/4=",
+        "owner": "noctalia-dev",
+        "repo": "xdg-desktop-portal-umbriel",
+        "rev": "5d16415264fa5ae86a110db5d172ca05edb43cf6",
         "type": "github"
       },
       "original": {
-        "owner": "Supreeeme",
-        "repo": "xwayland-satellite",
+        "owner": "noctalia-dev",
+        "repo": "xdg-desktop-portal-umbriel",
         "type": "github"
       }
     },
