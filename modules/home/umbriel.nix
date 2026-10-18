@@ -19,6 +19,9 @@
           natural_scroll = true;
           accel_profile = "flat";
         };
+        cursor = {
+          follows_focus = true;
+        };
       };
       keybinds = {
         # Launchers
@@ -84,6 +87,9 @@
         "Mod+Ctrl+Shift+L" = "spawn:noctalia msg session lock-and-suspend";
         "Mod+Shift+Slash" = "cheatsheet-toggle";
         "Mod+Shift+Escape" = "session-quit";
+
+        # Layout
+        "Mod+Shift+L" = "workspace-set-layout:toggle:scrolling,dwindle";
 
         # Screenshots
         "Print" = "spawn:noctalia msg screenshot-region";
