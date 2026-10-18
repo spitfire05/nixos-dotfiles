@@ -16,7 +16,7 @@
       user = username;
     };
     settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd start-umbirel";
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd start-umbriel";
       user = "greeter";
     };
   };
