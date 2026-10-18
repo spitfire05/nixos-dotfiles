@@ -91,6 +91,12 @@
         # Layout
         "Mod+Shift+L" = "workspace-set-layout:toggle:scrolling,dwindle";
 
+        # Scratchpad
+        "Mod+Alt+S" = "window-move-to-scratchpad";
+        "Mod+S" = "scratchpad-toggle";
+        "Mod+Ctrl+S" = "window-restore-from-scratchpad";
+        "Mod+Tab" = "scratchpad-focus-next";
+
         # Screenshots
         "Print" = "spawn:noctalia msg screenshot-region";
         "Mod+Print" = "spawn:noctalia msg screenshot-annotate";
