@@ -1,27 +1,27 @@
 # nixos-dotfiles
 
 <p align="center">
-  <img src="screenshot.png" alt="Screenshot of the NNN desktop — Niri + Noctalia on NixOS" width="100%">
+  <img src="screenshot.png" alt="Screenshot of the NUN desktop — Umbriel + Noctalia on NixOS" width="100%">
 </p>
 
-> My personal, opinionated **NNN** (NixOS + Niri + Noctalia) stack config. Based on [nnn-starter](https://github.com/floatdrop/nnn-starter).
+> My personal, opinionated **NUN** (NixOS + Umbriel + Noctalia) stack config. Based on [nnn-starter](https://github.com/floatdrop/nnn-starter).
 
 ## What is included
 
-| Layer             | Choice                                                                                                                     |
-|--------------     |--------                                                                                                                    |
-| Compositor        | [niri](https://github.com/YaLTeR/niri) (scrollable-tiling Wayland) via [niri-flake](https://github.com/epireyn/niri-flake) |
-| Shell/UI          | [Noctalia](https://github.com/noctalia-dev/noctalia-shell) **v5** (bar, launcher, notifications, lock, control center)     |
-| Theming           | [Stylix](https://github.com/nix-community/stylix) with the **Catppuccin Mocha** palette — one scheme themes everything     |
-| Terminal          | [Foot](https://codeberg.org/dnkl/foot)                                                                                             |
-| Shell + prompt    | Fish + [Starship](https://starship.rs) (autosuggestions, syntax highlighting, fzf, zoxide)                                 |
-| Editor (GUI)      | [Zed](https://zed.dev) — themed via Stylix; default handler for text/source files                                          |
-| Editor (terminal) | [Helix](https://helix-editor.com/); the `$EDITOR`                                                                          |
-| Browser           | [Zen](https://zen-browser.app) (beta channel, via the community flake)                                                     |
-| File manager      | [Yazi](https://yazi-rs.github.io/) + [Nautilus](https://apps.gnome.org/Nautilus/) (GNOME Files)                                                                 |
-| Font              | Jetbrains Mono NF                                                                                                          |
-| Login             | greetd + tuigreet → niri session (autologin, security achieved via root partition encryption, Omarchy-style)               |
-| Gaming            | Steam + Proton-GE + Gamemode + Mangohud                                                                                    |
+| Layer             | Choice                                                                                                                 |
+|--------------     |--------                                                                                                                |
+| Compositor        | [umbriel](https://docs.noctalia.dev/umbriel/) (scrollable-tiling Wayland)                                              |
+| Shell/UI          | [Noctalia](https://github.com/noctalia-dev/noctalia-shell) **v5** (bar, launcher, notifications, lock, control center) |
+| Theming           | [Stylix](https://github.com/nix-community/stylix) with the **Catppuccin Mocha** palette — one scheme themes everything |
+| Terminal          | [Foot](https://codeberg.org/dnkl/foot)                                                                                 |
+| Shell + prompt    | Fish + [Starship](https://starship.rs) (autosuggestions, syntax highlighting, fzf, zoxide)                             |
+| Editor (GUI)      | [Zed](https://zed.dev) — themed via Stylix; default handler for text/source files                                      |
+| Editor (terminal) | [Helix](https://helix-editor.com/); the `$EDITOR`                                                                      |
+| Browser           | [Zen](https://zen-browser.app) (beta channel, via the community flake)                                                 |
+| File manager      | [Yazi](https://yazi-rs.github.io/) + [Nautilus](https://apps.gnome.org/Nautilus/) (GNOME Files)                        |
+| Font              | Jetbrains Mono NF                                                                                                      |
+| Login             | greetd + tuigreet → umbriel session (autologin, security achieved via root partition encryption, Omarchy-style)        |
+| Gaming            | Steam + Proton-GE + Gamemode + Mangohud                                                                                |
 
 ### Modern command-line toolset
 `lsd` · `fzf` · `bat` · `btop` · `ripgrep` · `fd` · `zoxide` · `yazi` ·
@@ -68,7 +68,7 @@ values never get staged or committed.
 | **Hardware**                      | `hosts/<HOSTNAME>/hardware-configuration.nix` (generated, step 2) |
 | **External storage** if any       | `hosts/<HOSTNAME>/default.nix`                                    |
 | **Locale / keyboard layout**      | [`hosts/<HOSTNAME>/default.nix`](hosts/<HOSTNAME>/default.nix)    |
-| **Monitor name / position**       | `outputs` in [`modules/home/niri.nix`](modules/home/niri.nix)    |
+| **Monitor name / position**       | `outputs` in [`modules/home/umbriel.nix`](modules/home/umbriel.nix)    |
 
 > Editing the defaults themselves (e.g. to change the placeholders this repo
 > ships) needs `git update-index --no-skip-worktree local.nix` first.
@@ -80,33 +80,34 @@ flake.nix              # inputs + nixosConfigurations + darwinConfigurations
 local.nix              # your machine-local identity (skip-worktree)
 hosts/michal-pc/       # Linux host (NVIDIA, mounts, etc.)
 hosts/michal-macbook/  # Darwin host
-modules/nixos/         # system: boot, audio, niri, noctalia, stylix, users…
-modules/home/          # user: fish, foot, helix, niri keybinds, cli tools…
+modules/nixos/         # system: boot, audio, umbriel, noctalia, stylix, users…
+modules/home/          # user: fish, foot, helix, umbriel, keybinds, cli tools…
 modules/darwin/        # macOS-specific modules
 ```
 
-GUI/desktop apps and the niri/Noctalia stack are Linux-only (conditional imports in `modules/home/default.nix`).
+GUI/desktop apps and the Umbriel/Noctalia stack are Linux-only (conditional imports in `modules/home/default.nix`).
 
 ## Darwin / macOS support
 
 The flake also exports `darwinConfigurations.michal-macbook`.
 
-User configuration is shared via `modules/home`; Linux-only modules (niri, noctalia, foot, zed, media, etc.) are skipped on Darwin.
+User configuration is shared via `modules/home`; Linux-only modules (umbriel, noctalia, foot, zed, media, etc.) are skipped on Darwin.
 - Terminal: Alacritty (Foot is Linux-only).
 - Rebuild with the `rebuild` fish alias (`nh darwin switch`).
 - Use the same `local.nix` (hostName etc. can differ per-machine via skip-worktree).
 
-## Key bindings (niri)
+## Key bindings (umbriel)
 
 | Keys | Action |
 |------|--------|
 | `Mod`+`Return` | Terminal |
 | `Mod`+`Space` | Noctalia launcher |
 | `Mod`+`B` | Browser (Zen) |
-| `Mod`+`E` | File manager (Nautilus) |
+| `Mod`+`E` | File manager (yazi) |
 | `Mod`+`Q` | Close window |
 | `Mod`+`O` | Toggle overview |
-| `Mod`+`F` / `Mod`+`Shift`+`F` | Maximize column / fullscreen |
+| `Mod`+`F` | Fullscreen |
+| `Mod`+`M` | Maximize column to edges |
 | `Mod`+`Left`/`Right`/`Up`/`Down` | Focus column/window |
 | `Mod`+`Shift`+`Left`/`Right`/`Up`/`Down` | Move window |
 | `Mod`+`1`…`5` | Switch workspace |
@@ -114,11 +115,11 @@ User configuration is shared via `modules/home`; Linux-only modules (niri, nocta
 | `Mod`+`R` | Cycle column width |
 | `Print` | Screenshot |
 | `Mod`+`Shift`+`/` | Hotkey overlay (full list) |
-| `Mod`+`Shift`+`E` | Quit niri |
+| `Mod`+`Shift`+`E` | Quit umbriel |
 | `Mod`+`L` | Lock session |
 | `Mod`+`Shift`+`Ctrl`+`L` | Lock session & suspend |
 
-See `modules/home/niri.nix` for the full current list (arrows, media keys, tabbed, floating, resize, etc.).
+See `modules/home/umbriel.nix` for the full current list (arrows, media keys, tabbed, floating, resize, etc.).
 
 ## Reskin it
 
@@ -155,13 +156,10 @@ nixos-rebuild build-vm --flake .#<HOSTNAME>
 [`.github/workflows/check.yml`](.github/workflows/check.yml) runs on every push
 and PR:
 
-- **eval** — `nix flake check --no-build --all-systems` evaluates the whole config (the fast,
-  reliable signal: catches option typos and niri schema errors).
+- **eval** — `nix flake check --no-build --all-systems` evaluates the whole config (the fast, reliable signal: catches option typos and umbriel schema errors).
 - **lint** — `alejandra --check`, `statix`, `deadnix`.
 - **build** — realises the full system closure; runs on `main` / manual
-  dispatch. niri and noctalia are pulled prebuilt from their cachix caches
-  (`niri-epireyn.cachix.org`, `noctalia.cachix.org`), so it finishes in minutes instead
-  of compiling C++/Rust from source. Delete the job if you don't want it.
+  dispatch. umbriel  and noctalia are pulled prebuilt from their cachix caches, so it finishes in minutes instead of compiling C++/Rust from source. Delete the job if you don't want it.
 
 > **Commit a `flake.lock`.** Generate it once on a machine with Nix
 > (`nix flake lock`) and commit it, so CI and your machines resolve identical
@@ -176,13 +174,12 @@ and PR:
 
 ### Binary caches (no source builds)
 
-niri and noctalia would otherwise compile from source (noctalia's C++ tree alone
+umbriel and noctalia would otherwise compile from source (noctalia's C++ tree alone
 is ~an hour). To avoid that, the flake pins **noctalia to its `cachix` branch**
 — upstream force-pushes there only after a commit's package is built and pushed
 to `noctalia.cachix.org`, so `inputs.noctalia.packages.<sys>.default` is always a
 cache hit. It still tracks the **v5 line** (`main`), just slightly behind; the
-old series lives on `legacy-v4`. niri uses niri-flake's prebuilt
-`niri-stable` from `niri.cachix.org` for the same reason.
+old series lives on `legacy-v4`. 
 
 The two caches are trusted in [`modules/nixos/default.nix`](modules/nixos/default.nix)
 so your machine pulls binaries too. Neither input may `follows` our `nixpkgs` —
