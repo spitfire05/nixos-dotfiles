@@ -164,6 +164,16 @@
           match.app_id = "^signal$";
           default_workspace = "chat";
         }
+        {
+          match.title = "^(Picture-in-Picture|Picture in picture)$";
+          default_floating = true;
+          default_maximize = false;
+          default_position = {
+            x = 20;
+            y = 20;
+            anchor = "bottom_right";
+          };
+        }
       ];
     };
   };
