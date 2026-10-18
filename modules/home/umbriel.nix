@@ -29,23 +29,61 @@
           action = "spawn:foot";
           repeat = false;
         };
-        "Mod+Space" = "spawn:noctalia msg panel-toggle launcher";
-        "Mod+B" = "spawn:zen-beta";
-        "Mod+E" = "spawn:foot yazi $HOME";
-        "Mod+Shift+E" = "spawn:nautilus";
+        "Mod+Space" = {
+          action = "spawn:noctalia msg panel-toggle launcher";
+          repeat = false;
+        };
+        "Mod+B" = {
+          action = "spawn:zen-beta";
+          repeat = false;
+        };
+        "Mod+E" = {
+          action = "spawn:foot yazi $HOME";
+          repeat = false;
+        };
+        "Mod+Shift+E" = {
+          action = "spawn:nautilus";
+          repeat = false;
+        };
 
         # Windows
-        "Mod+Q" = "window-close";
-        "Mod+M" = "window-toggle-maximize-to-edges";
-        "Mod+F" = "window-toggle-fullscreen";
-        "Mod+W" = "column-toggle-tabbed";
-        "Mod+V" = "window-toggle-floating";
+        "Mod+Q" = {
+          action = "window-close";
+          repeat = false;
+        };
+        "Mod+M" = {
+          action = "window-toggle-maximize-to-edges";
+          repeat = false;
+        };
+        "Mod+F" = {
+          action = "window-toggle-fullscreen";
+          repeat = false;
+        };
+        "Mod+W" = {
+          action = "column-toggle-tabbed";
+          repeat = false;
+        };
+        "Mod+V" = {
+          action = "window-toggle-floating";
+          repeat = false;
+        };
         "Mod+C" = "column-center";
         "Mod+Comma" = "window-consume-left";
         "Mod+Period" = "window-consume-or-expel-right";
         "Mod+BracketLeft" = "window-consume-or-expel-left";
         "Mod+BracketRight" = "window-consume-or-expel-right";
-        "Alt+Tab" = "spawn:noctalia msg window-switcher hold";
+        "Alt+Tab" = {
+          action = "spawn:noctalia msg window-switcher hold";
+          repeat = false;
+        };
+        "Mod+T" = {
+          action = "window-toggle-floating";
+          repeat = false;
+        };
+        "Mod+Shift+T" = {
+          action = "window-focus-switch-floating";
+          repeat = false;
+        };
 
         # Focus
         "Mod+Left" = "window-focus-left";
@@ -83,29 +121,62 @@
         "Mod+Alt+Up" = "workspace-previous";
 
         # Overview & session
-        "Mod+O" = "overview-toggle";
-        "Mod+L" = "spawn:noctalia msg session lock";
-        "Mod+Ctrl+Shift+L" = "spawn:noctalia msg session lock-and-suspend";
-        "Mod+Shift+Slash" = "cheatsheet-toggle";
+        "Mod+O" = {
+          action = "overview-toggle";
+          repeat = false;
+        };
+        "Mod+L" = {
+          action = "spawn:noctalia msg session lock";
+          repeat = false;
+        };
+        "Mod+Ctrl+Shift+L" = {
+          action = "spawn:noctalia msg session lock-and-suspend";
+          repeat = false;
+        };
+        "Mod+Shift+Slash" = {
+          action = "cheatsheet-toggle";
+          repeat = false;
+        };
         "Mod+Shift+Escape" = "session-quit";
 
         # Layout
-        "Mod+Shift+L" = "workspace-set-layout:toggle:scrolling,dwindle";
+        "Mod+Shift+L" = {
+          action = "workspace-set-layout:toggle:scrolling,dwindle";
+          repeat = false;
+        };
 
         # Scratchpad
         "Mod+Alt+S" = "window-move-to-scratchpad";
-        "Mod+S" = "scratchpad-toggle";
+        "Mod+S" = {
+          action = "scratchpad-toggle";
+          repeat = false;
+        };
         "Mod+Ctrl+S" = "window-restore-from-scratchpad";
         "Mod+Tab" = "scratchpad-focus-next";
 
         # Screenshots
-        "Print" = "spawn:noctalia msg screenshot-region";
-        "Mod+Print" = "spawn:noctalia msg screenshot-annotate";
-        "Ctrl+Print" = "spawn:noctalia msg screenshot-fullscreen";
+        "Print" = {
+          action = "spawn:noctalia msg screenshot-region";
+          repeat = false;
+        };
+        "Mod+Print" = {
+          action = "spawn:noctalia msg screenshot-annotate";
+          repeat = false;
+        };
+        "Ctrl+Print" = {
+          action = "spawn:noctalia msg screenshot-fullscreen";
+          repeat = false;
+        };
 
         # Media
-        "XF86AudioRaiseVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-        "XF86AudioLowerVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioRaiseVolume" = {
+          action = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          repeat = false;
+        };
+        "XF86AudioLowerVolume" = {
+          action = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+          repeat = false;
+        };
         "XF86AudioMute" = {
           action = "spawn:wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           repeat = false;
@@ -114,15 +185,28 @@
           action = "spawn:playerctl play-pause";
           repeat = false;
         };
-        "XF86AudioNext" = "spawn:playerctl next";
-        "XF86AudioPrev" = "spawn:playerctl previous";
+        "XF86AudioNext" = {
+          action = "spawn:playerctl next";
+          repeat = false;
+        };
+        "XF86AudioPrev" = {
+          action = "spawn:playerctl previous";
+          repeat = false;
+        };
 
         # Brightness
-        "XF86MonBrightnessUp" = "spawn:brightnessctl set 5%+";
-        "XF86MonBrightnessDown" = "spawn:brightnessctl set 5%-";
+        "XF86MonBrightnessUp" = {
+          action = "spawn:brightnessctl set 5%+";
+          repeat = false;
+        };
+        "XF86MonBrightnessDown" = {
+          action = "spawn:brightnessctl set 5%-";
+          repeat = false;
+        };
       };
       window_rule = [
         {corner_radius = 20;}
+        {blur = true;}
         {
           match.app_id = "^dev.noctalia.Noctalia$";
           default_floating = true;
@@ -153,7 +237,6 @@
         {
           match.app_id = "^zen-beta$";
           default_workspace = "web";
-          default_maximize_to_edges = true;
         }
         {
           match.app_id = "^vesktop$";
