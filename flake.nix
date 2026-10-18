@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
     # Noctalia desktop shell (v5 line). Pinned to the `cachix` branch: upstream
     # force-pushes there only after a commit's package is built and pushed to
