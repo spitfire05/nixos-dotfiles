@@ -12,7 +12,7 @@
   services.greetd = {
     enable = true;
     settings.initial_session = {
-      command = "niri-session";
+      command = "start-umbriel";
       user = username;
     };
     settings.default_session = {
