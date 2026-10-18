@@ -45,6 +45,7 @@
         "Mod+Period" = "window-consume-or-expel-right";
         "Mod+BracketLeft" = "window-consume-or-expel-left";
         "Mod+BracketRight" = "window-consume-or-expel-right";
+        "Alt+Tab" = "spawn:noctalia msg window-switcher hold";
 
         # Focus
         "Mod+Left" = "window-focus-left";
