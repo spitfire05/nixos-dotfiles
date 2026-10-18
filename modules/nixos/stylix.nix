@@ -5,14 +5,14 @@
     enable = true;
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
 
-    # "Static mind, like the sea" (静心如海) — a meditating pepe before Hokusai's
-    # Great Wave off Kanagawa, vendored in-repo (pngquant-optimized).
-    image = ../../themes/wallpaper.png;
+    image = ../../themes/wallpaper.webp;
 
     # A hint of terminal transparency for that layered desktop look.
-    opacity.terminal = 0.95;
+    # 0.95 looks good for pure transparency
+    # 0.85 with blur enabled in WM
+    opacity.terminal = 0.85;
 
     fonts = {
       monospace = {
