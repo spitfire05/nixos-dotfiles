@@ -7,7 +7,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
 
-    image = ../../themes/wallpaper.webp;
+    image = ../../themes/liftoff.webp;
 
     # A hint of terminal transparency for that layered desktop look.
     # 0.95 looks good for pure transparency
