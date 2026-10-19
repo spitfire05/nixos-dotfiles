@@ -3,6 +3,7 @@
   programs.umbriel = {
     enable = true;
     settings = {
+      general.show_cheatsheet = false;
       workspace = [
         {name = "web";}
         {name = "dev";}
