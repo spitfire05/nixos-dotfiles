@@ -5,7 +5,7 @@
     enable = true;
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+    base16Scheme = "${pkgs.base24-schemes}/share/themes/tokyo-night-moon.yaml";
 
     image = ../../themes/liftoff.webp;
 
