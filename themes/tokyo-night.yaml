@@ -1,0 +1,21 @@
+system: "base16"
+name: "Tokyo Night"
+author: "omacom (from omarchy colors.toml)"
+variant: "dark"
+palette:
+  base00: "#1a1b26"  # Default Background
+  base01: "#13141c"  # Lighter Background (status bars, line numbers)
+  base02: "#292e42"  # Selection Background
+  base03: "#414868"  # Comments, Invisibles, Line Highlighting
+  base04: "#565f89"  # Dark Foreground (status bars)
+  base05: "#a9b1d6"  # Default Foreground, Caret, Delimiters, Operators
+  base06: "#b4bee6"  # Light Foreground
+  base07: "#c0caf5"  # Light Background / Bright Foreground
+  base08: "#f7768e"  # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted (Red)
+  base09: "#ff9e64"  # Integers, Boolean, Constants, XML Attributes, Markup Link Url (Orange)
+  base0A: "#e0af68"  # Classes, Markup Bold, Search Text Background (Yellow)
+  base0B: "#9ece6a"  # Strings, Inherited Class, Markup Code, Diff Inserted (Green)
+  base0C: "#449dab"  # Support, Regular Expressions, Escape Characters, Markup Quotes (Cyan)
+  base0D: "#7aa2f7"  # Functions, Methods, Attribute IDs, Headings (Blue)
+  base0E: "#ad8ee6"  # Keywords, Storage, Selector, Markup Italic, Diff Changed (Magenta)
+  base0F: "#75493d"  # Deprecated, Opening/Closing Embedded Language Tags (Brown)

@@ -5,7 +5,7 @@
     enable = true;
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+    base16Scheme = ../../themes/tokyo-night.yaml;
 
     image = ../../themes/liftoff.webp;
 
@@ -13,6 +13,10 @@
     # 0.95 looks good for pure transparency
     # 0.85 with blur enabled in WM
     opacity.terminal = 0.85;
+
+    # Don't style GTK source view, as it currently triggers binary cache misses -> long rebuilds
+    # https://github.com/nix-community/stylix/issues/2318
+    targets.gtksourceview.enable = false;
 
     fonts = {
       monospace = {
