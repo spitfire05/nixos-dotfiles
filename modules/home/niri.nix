@@ -64,7 +64,7 @@
       focus-ring = {
         enable = true;
         width = 2;
-        active.color = "#cba6f7"; # Catppuccin Mocha Mauve
+        active.color = "#7aa2f7"; # From theme (blue)
         inactive.color = "#00000000";
       };
       border.enable = false;
