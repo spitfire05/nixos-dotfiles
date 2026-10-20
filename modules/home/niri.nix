@@ -78,7 +78,7 @@
     # (see modules/home/noctalia.nix), so no spawn-at-startup needed.
 
     # Subtle, fast animations — omarchy-style polish without distraction.
-    animations.slowdown = 0.7;
+    animations.slowdown = 1.0;
 
     hotkey-overlay.skip-at-startup = true;
 
