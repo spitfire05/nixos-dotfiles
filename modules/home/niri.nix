@@ -48,7 +48,7 @@
     };
 
     layout = {
-      gaps = 12;
+      gaps = 8;
       always-center-single-column = true;
       center-focused-column = "on-overflow";
       preset-column-widths = [
@@ -102,6 +102,9 @@
           top-right = 20.0;
         };
         clip-to-geometry = true;
+        background-effect = {
+          blur = true;
+        };
       }
 
       # Floating Noctalia settings window
