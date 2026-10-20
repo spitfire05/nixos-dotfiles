@@ -106,7 +106,7 @@ User configuration is shared via `modules/home`; Linux-only modules (niri, nocta
 | `Mod`+`E` | File manager (Nautilus) |
 | `Mod`+`Q` | Close window |
 | `Mod`+`O` | Toggle overview |
-| `Mod`+`F` / `Mod`+`Shift`+`F` | Maximize column / fullscreen |
+| `Mod`+`M` / `Mod`+`F` | Maximize column / fullscreen |
 | `Mod`+`Left`/`Right`/`Up`/`Down` | Focus column/window |
 | `Mod`+`Shift`+`Left`/`Right`/`Up`/`Down` | Move window |
 | `Mod`+`1`…`5` | Switch workspace |

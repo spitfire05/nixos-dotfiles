@@ -196,8 +196,8 @@
 
       # Window management
       "Mod+Q".action.close-window = {};
-      "Mod+F".action.maximize-column = {};
-      "Mod+Shift+F".action.fullscreen-window = {};
+      "Mod+M".action.maximize-column = {};
+      "Mod+F".action.fullscreen-window = {};
       "Mod+W".action.toggle-column-tabbed-display = {};
       "Mod+V".action.toggle-window-floating = {};
       "Mod+C".action.center-column = {};
