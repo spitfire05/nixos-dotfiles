@@ -27,6 +27,7 @@
         };
       };
       editor = {
+        bufferline = "multiple";
         end-of-line-diagnostics = "hint";
         line-number = "relative";
         soft-wrap = {
