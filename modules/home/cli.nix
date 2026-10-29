@@ -69,6 +69,7 @@
     # dev stuff
     codebook
     marksman
+    tombi
 
     # rendering
     glow
