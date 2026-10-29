@@ -58,12 +58,13 @@
           language-servers = ["marksman" "codebook"];
         }
         {
-          name = "rust";
-          language-servers = ["rust-analyzer" "codebook"];
+          name = "c-sharp";
+          auto-format = true;
+          language-servers = ["csharp-ls"];
         }
         {
-          name = "c-sharp";
-          language-servers = ["csharp-ls" "codebook"];
+          name = "haskell";
+          auto-format = true;
         }
         {
           name = "nix";
