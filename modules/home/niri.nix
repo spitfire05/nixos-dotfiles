@@ -71,7 +71,12 @@
     };
 
     gestures = {
-      hot-corners.enable = false;
+      hot-corners = {
+        top-left = false;
+        top-right = false;
+        bottom-left = false;
+        bottom-right = false;
+      };
     };
 
     # noctalia is started as a systemd user service bound to the niri session
