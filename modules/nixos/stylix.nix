@@ -14,10 +14,6 @@
     # 0.85 with blur enabled in WM
     opacity.terminal = 0.9;
 
-    # Don't style GTK source view, as it currently triggers binary cache misses -> long rebuilds
-    # https://github.com/nix-community/stylix/issues/2318
-    targets.gtksourceview.enable = false;
-
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

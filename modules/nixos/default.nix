@@ -41,4 +41,8 @@
       mode = "0755";
     };
   };
+
+  # Don't style GTK source view, as it currently triggers binary cache misses -> long rebuilds
+  # https://github.com/nix-community/stylix/issues/2318
+  stylix.targets.gtksourceview.enable = false;
 }
