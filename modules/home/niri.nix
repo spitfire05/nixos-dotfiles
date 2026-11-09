@@ -24,8 +24,11 @@
     };
 
     input = {
-      keyboard.xkb = {
-        layout = "pl";
+      keyboard = {
+        numlock = true;
+        xkb = {
+          layout = "pl";
+        };
       };
       # Each window remembers its own layout ("global" = one shared layout).
       keyboard.track-layout = "window";
