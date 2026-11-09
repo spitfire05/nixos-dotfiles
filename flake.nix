@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # https://github.com/NixOS/nixpkgs/issues/585435
+    codebook.url = "github:nixos/nixpkgs/c85cbe0b7944a65ede3b0f7d2f4b384b6d31614b";
+
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
