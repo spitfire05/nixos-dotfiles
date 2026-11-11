@@ -8,7 +8,6 @@
   boot.plymouth.enable = true;
   boot.kernelParams = ["quiet"];
   boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
 
   # Additional in-tree modules to load
   boot.kernelModules = ["ntsync"];

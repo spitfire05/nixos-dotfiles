@@ -24,8 +24,11 @@
     };
 
     input = {
-      keyboard.xkb = {
-        layout = "pl";
+      keyboard = {
+        numlock = true;
+        xkb = {
+          layout = "pl";
+        };
       };
       # Each window remembers its own layout ("global" = one shared layout).
       keyboard.track-layout = "window";
@@ -48,7 +51,7 @@
     };
 
     layout = {
-      gaps = 12;
+      gaps = 8;
       always-center-single-column = true;
       center-focused-column = "on-overflow";
       preset-column-widths = [
@@ -64,21 +67,26 @@
       focus-ring = {
         enable = true;
         width = 2;
-        active.color = "#cba6f7"; # Catppuccin Mocha Mauve
+        active.color = "#7aa2f7"; # From theme (blue)
         inactive.color = "#00000000";
       };
       border.enable = false;
     };
 
     gestures = {
-      hot-corners.enable = false;
+      hot-corners = {
+        top-left = false;
+        top-right = false;
+        bottom-left = false;
+        bottom-right = false;
+      };
     };
 
     # noctalia is started as a systemd user service bound to the niri session
     # (see modules/home/noctalia.nix), so no spawn-at-startup needed.
 
     # Subtle, fast animations — omarchy-style polish without distraction.
-    animations.slowdown = 0.7;
+    animations.slowdown = 1.0;
 
     hotkey-overlay.skip-at-startup = true;
 
@@ -102,6 +110,9 @@
           top-right = 20.0;
         };
         clip-to-geometry = true;
+        background-effect = {
+          blur = true;
+        };
       }
 
       # Floating Noctalia settings window
@@ -196,8 +207,8 @@
 
       # Window management
       "Mod+Q".action.close-window = {};
-      "Mod+F".action.maximize-column = {};
-      "Mod+Shift+F".action.fullscreen-window = {};
+      "Mod+M".action.maximize-column = {};
+      "Mod+F".action.fullscreen-window = {};
       "Mod+W".action.toggle-column-tabbed-display = {};
       "Mod+V".action.toggle-window-floating = {};
       "Mod+C".action.center-column = {};

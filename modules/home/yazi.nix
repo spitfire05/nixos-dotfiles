@@ -13,12 +13,26 @@
     };
 
     settings = {
-      plugin.prepend_previewers = [
-        {
-          url = "*.md";
-          run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
-        }
-      ];
+      plugin = {
+        prepend_previewers = [
+          {
+            url = "*.md";
+            run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
+          }
+        ];
+        prepend_fetchers = [
+          {
+            url = "*";
+            run = "git";
+            group = "git";
+          }
+          {
+            url = "*/";
+            run = "git";
+            group = "git";
+          }
+        ];
+      };
     };
 
     plugins = with pkgs.yaziPlugins; {
@@ -28,6 +42,10 @@
       };
       piper = {
         package = piper;
+      };
+      git = {
+        package = git;
+        setup = true;
       };
     };
   };

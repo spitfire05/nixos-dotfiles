@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   username,
   isDarwin,
@@ -67,8 +68,9 @@
     nixd
 
     # dev stuff
-    codebook
+    inputs.codebook.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codebook
     marksman
+    tombi
 
     # rendering
     glow
