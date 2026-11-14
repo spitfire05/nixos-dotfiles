@@ -35,12 +35,23 @@ jobs:
       - name: Dead code (deadnix)
         run: nix run nixpkgs#deadnix -- --fail .
 
-  # Realise the NixOS system. niri and noctalia come prebuilt from their cachix
-  # caches (configured below + in modules/nixos/default.nix), so this no longer
-  # compiles them from source. Runs on main / manual dispatch.
+  # Realise every configuration. niri + noctalia are prebuilt from cachix for
+  # michal-pc. Runs on main / manual dispatch.
   build:
     if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        include:
+          - name: michal-pc
+            runner: ubuntu-latest
+            attr: nixosConfigurations.michal-pc.config.system.build.toplevel
+          - name: DPF664KK9
+            runner: ubuntu-latest
+            attr: nixosConfigurations.DPF664KK9.config.system.build.toplevel
+          - name: michal-macbook
+            runner: macos-latest
+            attr: darwinConfigurations.michal-macbook.system
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v26
@@ -49,7 +60,7 @@ jobs:
           extra-conf: |
             extra-substituters = https://niri-epireyn.cachix.org https://noctalia.cachix.org
             extra-trusted-public-keys = niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA= noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=
-      - name: Build the NixOS system closure
+      - name: Build ${{ matrix.name }}
         run: |
           nix build --print-build-logs \
-            '.#nixosConfigurations.michal-pc.config.system.build.toplevel'
+            '.#${{ matrix.attr }}'
