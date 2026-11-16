@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ../nixos/cache.nix
     ../nixos/stylix.nix
     ../nixos/users.nix
   ];

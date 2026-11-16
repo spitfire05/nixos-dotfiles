@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Automatically sign store derivations with this key, so this host can act as a local cache/build server:
+  nix.settings.secret-key-files = ["/var/secrets/nix-cache-priv-key"];
+
   # NVIDIA driver
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
