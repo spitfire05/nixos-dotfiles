@@ -14,6 +14,9 @@
     ./moonshine.nix
   ];
 
+  # For Zed LSPs to work in NixOS
+  programs.nix-ld.enable = true;
+
   stylix.cursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";

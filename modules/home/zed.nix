@@ -18,7 +18,7 @@
     # Auto-installed on startup. Names come from the Zed extension registry:
     # https://github.com/zed-industries/extensions
     extensions = [
-      "kanagawa-themes" # color theme, selected below
+      "tokyo-night" # color theme, selected below
       "catppuccin-icons" # file-type icon theme, selected below
       "nix" # Nix language support
       "html" # HTML language support
@@ -27,7 +27,7 @@
     userSettings = {
       # Hand-tuned Kanagawa from the extension above. mkForce because the Stylix
       # zed target also sets `theme` (to its harsh Base16 build).
-      theme = lib.mkForce "Kanagawa Wave";
+      theme = lib.mkForce "Tokyo Night";
 
       # File-type icons from the catppuccin-icons extension above.
       icon_theme = "Catppuccin Frappé";
@@ -47,6 +47,8 @@
       # opening a folder cold misses the environment unless direnv had already
       # loaded in the launching shell.
       load_direnv = "direct";
+
+      helix_mode = true;
     };
   };
 
