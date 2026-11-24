@@ -12,6 +12,7 @@
     ./stylix.nix
     ./users.nix
     ./moonshine.nix
+    ./qmk.nix
   ];
 
   # For Zed LSPs to work in NixOS
