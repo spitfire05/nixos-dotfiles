@@ -34,6 +34,7 @@
     ./niri.nix
     ./noctalia.nix
     ./media.nix
+    ./moonshine.nix
     ./discord.nix
     ./zed.nix
   ];
