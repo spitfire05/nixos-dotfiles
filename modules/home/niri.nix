@@ -182,6 +182,26 @@
         ];
         open-on-workspace = "chat";
       }
+
+      {
+        matches = [
+          {title = "^(Picture-in-Picture|Picture in picture)$";}
+        ];
+        open-floating = true;
+        open-maximized = false;
+        open-focused = false;
+        default-column-width = {
+          fixed = 480;
+        };
+        default-window-height = {
+          fixed = 270;
+        };
+        default-floating-position = {
+          x = 20;
+          y = 20;
+          relative-to = "bottom-right";
+        };
+      }
     ];
 
     # niri-flake's canonical attribute form: `action.<name> = <args>`. No-arg
@@ -210,7 +230,8 @@
       "Mod+M".action.maximize-column = {};
       "Mod+F".action.fullscreen-window = {};
       "Mod+W".action.toggle-column-tabbed-display = {};
-      "Mod+V".action.toggle-window-floating = {};
+      "Mod+T".action.toggle-window-floating = {};
+      "Mod+Shift+T".action.switch-focus-between-floating-and-tiling = {};
       "Mod+C".action.center-column = {};
       "Mod+Comma".action.consume-window-into-column = {};
       "Mod+Period".action.expel-window-from-column = {};
