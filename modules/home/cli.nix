@@ -68,7 +68,7 @@
     nixd
 
     # dev stuff
-    inputs.codebook.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codebook
+    codebook
     marksman
     tombi
 

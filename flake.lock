@@ -68,22 +68,6 @@
         "type": "github"
       }
     },
-    "codebook": {
-      "locked": {
-        "lastModified": 1792652892,
-        "narHash": "sha256-qnmxJPcsmDo1lD7toNADBS/tbJbfZBYGiPL421nk3dc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c85cbe0b7944a65ede3b0f7d2f4b384b6d31614b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c85cbe0b7944a65ede3b0f7d2f4b384b6d31614b",
-        "type": "github"
-      }
-    },
     "curseforge": {
       "inputs": {
         "nixpkgs": [
@@ -417,7 +401,6 @@
     },
     "root": {
       "inputs": {
-        "codebook": "codebook",
         "curseforge": "curseforge",
         "home-manager": "home-manager",
         "niri": "niri",
